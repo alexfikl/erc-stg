@@ -1,36 +1,48 @@
-\documentclass[11pt,draftproposal]{erc-stg}
+\documentclass[11pt,timesnewroman,parttwo,draftproposal]{erc-stg}
+
 % {{{ packages
 
 % better environments
 \usepackage[nameinlink, noabbrev]{cleveref}
-\usepackage[shortlabels]{enumitem}
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{subcaption}
 
 % better typography
-\usepackage[activate={true,nocompatibility}, % activate protrusion and font expansion
-            final,              % enable microtype, use draft to disable
-            tracking=true,
-            factor=1100,        % more protrusion
-            stretch=10,         % smaller values (default 20, 20) to avoid blurring
-            shrink=10]{microtype}
-\SetTracking{encoding={*}, shape=sc}{40}
+\usepackage{microtype}
 
-% }}}
-
-% {{{ formatting
-
-% NOTE: this needs to be kept so that the sections match the template!
-\setcounter{section}{0}
+\newenvironment{granttable}{
+\begin{erctable}[\normalsize]{
+    |m{0.13\textwidth}
+    |m{0.13\textwidth}
+    |m{0.13\textwidth}
+    |m{0.13\textwidth}
+    |m{0.13\textwidth}
+    |m{0.195\textwidth}
+    |} \hline
+\rowcolor{ERCTableGray}
+\centering\arraybackslash \textit{Project title} &
+\centering\arraybackslash \textit{Funding source} &
+\centering\arraybackslash \textit{Amount (Euros)} &
+\centering\arraybackslash \textit{Period} &
+\centering\arraybackslash \textit{Role of the PI} &
+\centering\arraybackslash \textit{Relation to current ERC proposal\footnotemark[2]} \\
+\hline
+}{
+\end{erctable}
+}
 
 % }}}
 
 % {{{ title
 
-\title{Part B-1}
-\author{}
-\date{}
+% \ercauthor{John Doe}
+% \ercauthorlastname{Doe}
+% \ercinstitution{Massachusetts Institute of Technology (MIT)}
+% \ercduration{60 months}
+%
+% \erctitle{Quantum Understanding and Simulated Analysis Research}
+% \ercacronym{QUASAR}
 
 % }}}
 
@@ -38,6 +50,66 @@
 
 \maketitle
 
+\noindent \textbf{Sections A and B of Part B2 should not exceed 14 pages.
+References do not count towards the page limits.}
+
+\begin{erccomment}
+\medskip
+Text highlighted in grey should be deleted.
+
+\textbf{Please respect the following formatting constraints: Times New Roman,
+Arial or similar, at least font size 11, margins (2.0 cm side and 1.5 cm top
+and bottom), single line spacing. Do NOT split the sections, references and/or
+the appendix (Funding ID) and do NOT upload them as separate documents.}
+\end{erccomment}
+
+\section{State-of-the-art and objectives}
+\label{sc:state}
+
+\section{Methodology}
+\label{sc:meth}
+
+\begin{erccomment}
+\textbf{
+Do NOT include any description of resources or budget table here (Part B2).
+The Resources section and the detailed budget table are part of the online
+submission form (Part A, Section 3 - Budget) which will be extracted and provided
+to the peer reviewers. If additional documents are uploaded in the submission
+system as separate attachments, the peer reviewers will not have access to them.
+}
+\end{erccomment}
+
+\newpage
+
+\begin{center}
+\textbf{Appendix: All current grants and on-going / submitted grant applications of the PI} \\
+
+\textbf{(Funding ID)}
+
+\textit{\underline{Mandatory information} (does not count towards page limits)}
+\end{center}
+
+\medskip
+
+\noindent \textbf{Current research grants (Please indicate "No funding" when applicable):}
+
+\begin{granttable}
+& & & & & \\\hline
+& & & & & \\\hline
+& & & & & \\\hline
+\end{granttable}
+
+\noindent \textbf{On-going / submitted grant applications (Please indicate "None"
+when applicable):}
+
+\begin{granttable}
+& & & & & \\\hline
+& & & & & \\\hline
+& & & & & \\\hline
+\end{granttable}
+
+\footnotetext{Describe clearly any scientific overlap between your ERC application
+and the current research grant or on-going grant application.}
 \end{document}
 
 % kate: default-dictionary en_GB;

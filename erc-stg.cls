@@ -11,6 +11,13 @@
 
 % <<< declare options
 
+% part B1 and B2
+\newif\if@partone \@partonefalse
+\DeclareOption{partone}{\@partonetrue}
+
+\newif\if@parttwo \@parttwofalse
+\DeclareOption{parttwo}{\@parttwotrue}
+
 % draft features
 \newif\if@draftproposal \@draftproposalfalse
 \DeclareOption{draftproposal}{\@draftproposaltrue}
@@ -19,13 +26,21 @@
 \newif\if@nocomments \@nocommentsfalse
 \DeclareOption{nocomments}{\@nocommentstrue}
 
+% use Times New Roman
+\newif\if@timesnewroman \@timesnewromanfalse
+\DeclareOption{timesnewroman}{\@timesnewromantrue}
+
+% use Arial
+\newif\if@arial \@arialfalse
+\DeclareOption{arial}{\@arialtrue}
+
 % grid
 \newif\if@layoutgrid \@layoutgridfalse
 \DeclareOption{layoutgrid}{\@layoutgridtrue}
 
 % additional options passed to `scrartcl` class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
-\PassOptionsToClass{11pt}{scrartcl}
+\PassOptionsToClass{a4paper, fontsize=11bp}{scrartcl}
 
 \ProcessOptions
 \LoadClass{scrartcl}
@@ -51,36 +66,83 @@
 \RequirePackage{indentfirst}
 % set recommended spacing
 \RequirePackage{setspace}
+% enable comments
+\RequirePackage{comment}
+
+% for everbody's benefit
+\RequirePackage[shortlabels]{enumitem}
 
 % >>>
 
 % <<< commands
 
+\newcommand{\ercyear}{\advance\year by 1 \the\year\advance\year by -1}
+
 % NOTE: color used for header / footer
 \definecolor{ERCGray}{RGB}{140, 140, 140}
-\definecolor{ERCHighlight}{RGB}{210, 210, 210}
+\definecolor{ERCTableGray}{RGB}{191, 191, 191}
 
 \newcommand{\ercauthor}[1]{\def\@ercauthor{#1}}
-\newcommand{\ercapplicant}[1]{\def\@ercapplicant{#1}}
+\newcommand{\ercauthorlastname}[1]{\def\@ercauthorlastname{#1}}
 \newcommand{\ercinstitution}[1]{\def\@ercinstitution{#1}}
 \newcommand{\ercduration}[1]{\def\@ercduration{#1}}
 
 \newcommand{\erctitle}[1]{\def\@erctitle{#1}}
 \newcommand{\ercacronym}[1]{\def\@ercacronym{#1}}
 
+\newcommand{\ercsummary}[1]{\def\@ercsummary{#1}}
+\newcommand{\erccrosssummary}[1]{\def\@erccrosssummary{#1}}
+
 \def\@ercauthor{Applicant Name}
-\def\@ercapplicant{Applicant's last name}
+\def\@ercauthorlastname{Applicant's last name}
 \def\@ercinstitution{Institution Name}
-\def\@ercduration{XX months}
+\def\@ercduration{XX}
 
 \def\@erctitle{Proposal Full Title}
-\def\@ercacronym{ACRONYM}
+% \def\@ercacronym{ACRONYM}
 
 % add a timestamp in draft mode
 \if@nocomments
-    \newcommand{\erccomment}[1]{\empty}
+    \excludecomment{erccomment}
+    \newcommand{\erchidden}[1]{\empty}
 \else
-    \newcommand{\erccomment}[1]{\textcolor{ERCGray}{#1}}
+    \newcommand{\erchidden}[1]{\textcolor{ERCGray}{#1}}
+    \newenvironment{erccomment}{%
+        \vspace{-0.5cm}
+        \setlength{\parskip}{1em}%
+        \color{ERCGray}}{}
+\fi
+
+\if@nocomments
+\def\@ercsummary{\hfill \vspace{10.5cm}}
+\else
+\def\@ercsummary{
+\erchidden{Proposal summary (identical to the abstract from the online proposal
+submission forms, section 1). \\}
+
+\erchidden{The abstract (summary) should, at a glance, provide the reader with
+a clear understanding of the objectives of the research proposal and how they will
+be achieved. The abstract will be used as the short description of your research
+proposal in the evaluation process and in communications to contact in particular
+potential  independent external experts and/or to inform the Commission and/or
+the programme management committees and/or relevant national funding agencies.
+It must therefore be short and precise and should not contain confidential information. \\}
+
+\erchidden{Please use plain typed text, avoiding formulae and other special
+characters. The abstract must be written in English. There is a limit of 2000
+characters (spaces and line breaks included). \\}
+
+\vspace{3.3cm}
+}
+\def\@erccrosssummary{
+\erchidden{
+Explain and justify the cross-panel or cross domain nature of your proposal,
+if a secondary panel is indicated in the online proposal submission forms. There is
+a limit of 1000 characters (spaces and line breaks included).
+}
+
+\vspace{2cm}
+}
 \fi
 
 % >>>
@@ -89,38 +151,57 @@
 
 \singlespacing
 
-% force serif fonts
-\addtokomafont{disposition}{\rmfamily}
-% additional options
-\KOMAoptions{
-    paper=A4,
-    parskip=half*,
-}
-
-% required font is Times New Roman (or Nimbus Roman on Linux)
 \ifpdftex
     \RequirePackage[T1]{fontenc}
-    \RequirePackage{mathptmx}
 \else
     \RequirePackage{fontspec}
-    \IfFontExistsTF{Times New Roman}{
-        \setmainfont[Ligatures=Rare]{Times New Roman}}{
-        \IfFontExistsTF{Nimbus Roman}{
-            \setmainfont{Nimbus Roman}
-        }{\PackageWarning{erc-stg}{No Times New Roman font could be found}}}
+\fi
+
+% required font is Times New Roman (or Nimbus Roman on Linux)
+\if@timesnewroman
+    \ifpdftex
+        \RequirePackage{mathptmx}
+    \else
+        \IfFontExistsTF{Times New Roman}{
+            \setmainfont[Ligatures=Rare]{Times New Roman}}{
+            \IfFontExistsTF{Nimbus Roman}{
+                \setmainfont{Nimbus Roman}
+            }{\PackageWarning{erc-stg}{No Times New Roman-type font could be found}}}
+    \fi
+
+    % force serif fonts
+    \addtokomafont{disposition}{\rmfamily}
+\fi
+
+\if@arial
+    \ifpdftex
+        \RequirePackage{helvet}
+
+        % force sans serif fonts
+        \renewcommand{\familydefault}{\sfdefault}
+    \else
+        \IfFontExistsTF{Arial}{
+            \setmainfont{Arial}}{
+            \IfFontExistsTF{Nimbus Sans}{
+                \setmainfont{Nimbus Sans}
+            }{\PackageWarning{erc-stg}{No Arial-type font could be found}}}
+        \setmainfont{Arial}
+    \fi
 \fi
 
 \typearea{14}
 \AfterCalculatingTypearea{
-    \geometry{top=1.5cm, bottom=1.5cm, left=2cm, right=2cm, footskip=1cm, headsep=0.5cm}
+    \geometry{top=1.5cm, bottom=1.5cm, left=2cm, right=2cm, footskip=0.5cm, headsep=0.05cm}
 }
 
 % tighted sections a bit for more space
-\RedeclareSectionCommand[beforeskip=0.5em, afterskip=0.5em]{section}
-\RedeclareSectionCommand[beforeskip=0.5em, afterskip=0.5em]{subsection}
-\RedeclareSectionCommand[beforeskip=0.25em, afterskip=0.25em]{subsubsection}
+\RedeclareSectionCommand[beforeskip=1em, afterskip=1em]{section}
+\RedeclareSectionCommand[beforeskip=1em, afterskip=1em]{subsection}
+\RedeclareSectionCommand[beforeskip=1em, afterskip=1em, indent=1cm]{subsubsection}
 
 \addtokomafont{section}{\normalsize}
+\addtokomafont{subsection}{\normalsize\underline}
+\addtokomafont{subsubsection}{\normalsize}
 \renewcommand{\thesection}{Section \Alph{section}}
 
 % >>>
@@ -132,19 +213,16 @@
     \RequirePackage[
         grid, gridBG,
         gridunit=mm,
-        gridcolor=ERCHighlight,
-        subgridcolor=ERCHighlight,
+        gridcolor=ERCTableGray,
+        subgridcolor=ERCTableGray,
         texcoord]{eso-pic}
+    \geometry{showframe=true}
 \fi
 
 \AtBeginDocument{
     % customize PDF bookmarks a bit
     \RequirePackage{bookmark}
     \bookmarksetup{numbered}
-
-    \if@draftproposal
-        \linenumbers
-    \fi
 }
 
 % make links a bit less intrusive
@@ -182,10 +260,14 @@
 \pagestyle{plain}
 \clearpairofpagestyles
 
-\def\callapplicant{\textnormal{\textcolor{ERCGray}{\@ercapplicant}}}
-\def\callacronym{\textnormal{\textcolor{ERCGray}{\@ercacronym}}}
-\def\callpart{\textnormal{\textcolor{ERCGray}{Part B1 \draftheader}}}
-\def\pagefooter{\textnormal{\textcolor{ERCGray}{\thepage}}}
+\def\callapplicant{\@ercauthorlastname}
+\def\callacronym{\textnormal{\@ifundefined{@ercacronym}{ACRONYM}{\@ercacronym}}}
+\def\pagefooter{\textnormal{\thepage}}
+\if@parttwo
+    \def\callpart{\textnormal{Part B2 \draftheader}}
+\else
+    \def\callpart{\textnormal{Part B1 \draftheader}}
+\fi
 
 \cfoot[\pagefooter]{\pagefooter}
 \ihead[\callapplicant]{\callapplicant}
@@ -196,68 +278,79 @@
 
 % <<< title
 
-\renewcommand{\maketitle}{
-\vspace*{1cm}
-\begin{center}
-\textbf{\large ERC Starting Grant 2025}
+\if@partone
+    \renewcommand{\maketitle}{
+    \vspace*{0.9cm}
+    \begin{center}
+    \textbf{\large ERC Starting Grant \ercyear}
 
-\textbf{\Large Research Proposal [Part B1]\footnotemark}
+    \textbf{\Large Research proposal [Part B1]\footnotemark}
 
-\erccomment{
+    \footnotetext{Instructions for completing Part B1 can be found in the
+    ''\textit{Information for Applicants to the Starting and Consolidator Grant
+    \ercyear\ Calls}``.
+    }
+
+    \erchidden{
     \large
-    \textbf{\textit{(Part B1 is evaluated in Step 1 and Step 2, \\
-             Part B2 is evaluated in Step 2 only)}}
-}
+    \textbf{\textit{
+        (Part B1 is evaluated in Step 1 and Step 2, \\
+        Part B2 is evaluated in Step 2 only)}}
+    }
 
-{\huge \@erctitle}
+    \vspace{0.3cm}
+    {\huge \@erctitle}
 
-{\huge PROPOSAL \@ercacronym}
-\end{center}
+    \vspace{0.3cm}
+    {\huge \@ifundefined{@ercacronym}{PROPOSAL ACRONYM}{\@ercacronym}}
+    \end{center}
 
-\bigskip
+    \bigskip
 
-\textbf{Cover Page:}
-\begin{itemize}[--]
-    \item Name of the Principal Investigator (PI): \textit{\@ercauthor}
-    \item Name of the PI's Host Institution for the project: \textit{\@ercinstitution}
-    \item Proposal duration in months: \textit{\@ercduration}
-\end{itemize}
+    \noindent \textbf{Cover Page:}
+    \begin{itemize}[leftmargin=15pt, topsep=0pt, itemsep=0pt, ]
+        \item[--] Name of the Principal Investigator (PI): \textit{\@ercauthor}
+        \item[--] Name of the PI's Host Institution for the project: \textit{\@ercinstitution}
+        \item[--] Proposal duration in months: \textit{\@ercduration{} months} \\
+    \end{itemize}
 
-\erccomment{Please delete all text highlighted in gray in this template.}
+    \erchidden{Please delete all text highlighted in gray in this template. \\}
 
-\noindent\fbox{
-\parbox{\textwidth}{
-\erccomment{Proposal summary (identical to the abstract from the online proposal
-submission forms, section 1).}
+    \noindent\fbox{\parbox{0.987\textwidth}{\@ercsummary}}
 
-\bigskip
+    \@ifundefined{@erccrosssummary}{}{
+    \noindent\fbox{\parbox{0.987\textwidth}{\@erccrosssummary}}
+    }
 
-\erccomment{The abstract (summary) should, at a glance, provide the reader with
-a clear understanding of the objectives of the research proposal and how they will
-be achieved. The abstract will be used as the short description of your research
-proposal in the evaluation process and in communications to contact in particular
-potential  independent external experts and/or to inform the Commission and/or
-the programme management committees and/or relevant national funding agencies.
-It must therefore be short and precise and should not contain confidential information.
-}
+    \newpage
 
-\bigskip
+    \if@draftproposal
+        \linenumbers
+    \fi
+    }
+\fi
 
-\erccomment{Please use plain typed text, avoiding formulae and other special
-characters. The abstract must be written in English. There is a limit of 2000
-characters (spaces and line breaks included).}
-}}
+\if@parttwo
+    \renewcommand{\maketitle}{
+    \vspace*{0.65cm}
+    \begin{center}
+    \textbf{\Large ERC Starting Grant \ercyear}
 
-\erccomment{
-Explain and justify the cross-panel or cross domain nature of your proposal, if
-a secondary panel is indicated in the online proposal submission forms. There is
-a limit of 1000 characters (spaces and line breaks included).}
+    \textbf{\Large Part B2\footnotemark}
 
-\footnotetext{Instructions for completing Part B1 can be found in the
-''\textit{Information for Applicants to the Starting and Consolidator Grant 2025 Calls}``.
-}
-\newpage
-}
+    \textbf{\Large \textit{(\underline{not} evaluated in Step 1)}}
+    \end{center}
+
+    \footnotetext{Instructions for completing Part B2 can be found in the
+    ''\textit{Information for Applicants to the Starting and Consolidator Grant
+    \ercyear\ Calls}``.
+    }
+
+    \if@draftproposal
+        \linenumbers
+    \fi
+    }
+\fi
 
 % >>>
 
@@ -281,6 +374,13 @@ a limit of 1000 characters (spaces and line breaks included).}
 }{%
 \end{longtable}
 \end{center}
+}
+
+\newenvironment{erccvitem}{
+\noindent
+\begin{tabular}{m{3cm}l}
+}{
+\end{tabular}
 }
 
 % >>>
