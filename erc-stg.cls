@@ -18,14 +18,6 @@
 \newif\if@parttwo \@parttwofalse
 \DeclareOption{parttwo}{\@parttwotrue}
 
-% draft features
-\newif\if@draftproposal \@draftproposalfalse
-\DeclareOption{draftproposal}{\@draftproposaltrue}
-
-% documentation features
-\newif\if@nocomments \@nocommentsfalse
-\DeclareOption{nocomments}{\@nocommentstrue}
-
 % use Times New Roman
 \newif\if@timesnewroman \@timesnewromanfalse
 \DeclareOption{timesnewroman}{\@timesnewromantrue}
@@ -33,6 +25,14 @@
 % use Arial
 \newif\if@arial \@arialfalse
 \DeclareOption{arial}{\@arialtrue}
+
+% draft features
+\newif\if@draftproposal \@draftproposalfalse
+\DeclareOption{draftproposal}{\@draftproposaltrue}
+
+% documentation features
+\newif\if@nocomments \@nocommentsfalse
+\DeclareOption{nocomments}{\@nocommentstrue}
 
 % grid
 \newif\if@layoutgrid \@layoutgridfalse
@@ -78,8 +78,9 @@
 
 \newcommand{\ercyear}{\advance\year by 1 \the\year\advance\year by -1}
 
-% NOTE: color used for header / footer
+% NOTE: color used for comments
 \definecolor{ERCGray}{RGB}{140, 140, 140}
+% NOTE: color used for table headers
 \definecolor{ERCTableGray}{RGB}{191, 191, 191}
 
 \newcommand{\ercauthor}[1]{\def\@ercauthor{#1}}
@@ -356,7 +357,7 @@ a limit of 1000 characters (spaces and line breaks included).
 
 % <<< table
 
-\newenvironment{erctable}[2][\footnotesize]{
+\newenvironment{erctable}[2][\normalsize]{
 \begin{center}
 #1 % Set the right size (and font maybe)
 \newcommand{\ra}{\raggedright\arraybackslash}
@@ -366,7 +367,7 @@ a limit of 1000 characters (spaces and line breaks included).
 \end{center}
 }
 
-\newenvironment{erclongtable}[2][\footnotesize]{
+\newenvironment{erclongtable}[2][\normalsize]{
 \begin{center}
 #1 % Set the right size (and font maybe)
 \newcommand{\ra}{\raggedright\arraybackslash}
