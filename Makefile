@@ -2,6 +2,7 @@ TEXMK?=latexmk
 OUTDIR?=latex.out
 TEXFLAGS?=-pdflua -output-directory=$(OUTDIR)
 PDFFILES=\
+	erc-stg-host-institution-letter-template.pdf \
 	erc-stg-b1-template.pdf \
 	erc-stg-b2-template.pdf
 

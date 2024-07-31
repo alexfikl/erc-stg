@@ -309,7 +309,7 @@ a limit of 1000 characters (spaces and line breaks included).
     \bigskip
 
     \noindent \textbf{Cover Page:}
-    \begin{itemize}[leftmargin=15pt, topsep=0pt, itemsep=0pt, ]
+    \begin{itemize}[leftmargin=15pt, topsep=0pt, itemsep=0pt]
         \item[--] Name of the Principal Investigator (PI): \textit{\@ercauthor}
         \item[--] Name of the PI's Host Institution for the project: \textit{\@ercinstitution}
         \item[--] Proposal duration in months: \textit{\@ercduration{} months} \\
