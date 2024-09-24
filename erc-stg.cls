@@ -193,7 +193,7 @@ a limit of 1000 characters (spaces and line breaks included).
 
 \typearea{14}
 \AfterCalculatingTypearea{
-    \geometry{top=1.5cm, bottom=1.5cm, left=2cm, right=2cm, footskip=0.5cm, headsep=0.05cm}
+    \geometry{top=1.75cm, bottom=1.5cm, left=2cm, right=2cm, footskip=0.5cm, headsep=0.5cm}
 }
 
 % tighted sections a bit for more space
