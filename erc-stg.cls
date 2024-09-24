@@ -103,7 +103,12 @@
 \def\@erctitle{Proposal Full Title}
 % \def\@ercacronym{ACRONYM}
 
-% add a timestamp in draft mode
+% enable comments only in draft mode
+\if@draftproposal\else
+    \@nocommentstrue
+\fi
+
+% define comment environments
 \if@nocomments
     \excludecomment{erccomment}
     \NewDocumentCommand \erchidden { m } {\empty}
