@@ -2,7 +2,11 @@ ERC-STG: LaTeX Template
 -----------------------
 
 LaTeX class and template for the European Research Council (ERC) Starting Grant
-applications.
+applications. The goal of this template is to be as close as possible to the
+original template provided by the ERC. However, at this time (2024) the call
+imposes very few strict rules for the formatting (margins, font size, font type),
+so you are always free to be more creative with it. For a wonderfully colorful example, see
+`a proposal by Matthew von Hippel <https://4gravitons.com/2024/03/15/an-open-source-grant-proposal/>`__.
 
 * Details and original template is provided
   `here <https://erc.europa.eu/apply-grant/starting-grant>`__
