@@ -96,7 +96,8 @@ metadata is available.
 * ``\ercacronym``: sets the proposal acronym (must match the title).
 * ``\ercsummary``: defines the summary that appears on the title page of Part B1.
 * ``\erccrossummary``: defines the cross-disciplinary proposal justification
-  that appears on the title page of Part B1.
+  that appears on the title page of Part B1. If no such justification is needed,
+  use the ``\ercnocrosssummary`` command to remove the box and text for this part.
 
 The following optional helper environments are also defined:
 

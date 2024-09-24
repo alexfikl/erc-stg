@@ -91,8 +91,9 @@
 \newcommand{\erctitle}[1]{\def\@erctitle{#1}}
 \newcommand{\ercacronym}[1]{\def\@ercacronym{#1}}
 
-\newcommand{\ercsummary}[1]{\def\@ercsummary{#1}}
-\newcommand{\erccrosssummary}[1]{\def\@erccrosssummary{#1}}
+\NewDocumentCommand \ercsummary { m } {\def\@ercsummary{#1}}
+\NewDocumentCommand \ercnocrosssummary { } {\def\@erccrosssummaryempty}
+\NewDocumentCommand \erccrosssummary { m } {\def\@erccrosssummary{#1}}
 
 \def\@ercauthor{Applicant Name}
 \def\@ercauthorlastname{Applicant's last name}
@@ -319,9 +320,8 @@ a limit of 1000 characters (spaces and line breaks included).
 
     \noindent\fbox{\parbox{0.987\textwidth}{\@ercsummary}}
 
-    \@ifundefined{@erccrosssummary}{}{
-    \noindent\fbox{\parbox{0.987\textwidth}{\@erccrosssummary}}
-    }
+    \@ifundefined{@erccrosssummaryempty}{
+    \noindent\fbox{\parbox{0.987\textwidth}{\@erccrosssummary}}}{}
 
     \newpage
 
@@ -379,7 +379,7 @@ a limit of 1000 characters (spaces and line breaks included).
 
 \newenvironment{erccvitem}{
 \noindent
-\begin{tabular}{m{3cm}l}
+\begin{tabular}{>{\centering}m{0.15\textwidth}m{0.85\textwidth}}
 }{
 \end{tabular}
 }
