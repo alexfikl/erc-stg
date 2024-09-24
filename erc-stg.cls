@@ -76,20 +76,20 @@
 
 % <<< commands
 
-\newcommand{\ercyear}{\advance\year by 1 \the\year\advance\year by -1}
+\NewDocumentCommand \ercyear {} {\advance\year by 1 \the\year\advance\year by -1}
 
 % NOTE: color used for comments
 \definecolor{ERCGray}{RGB}{140, 140, 140}
 % NOTE: color used for table headers
 \definecolor{ERCTableGray}{RGB}{191, 191, 191}
 
-\newcommand{\ercauthor}[1]{\def\@ercauthor{#1}}
-\newcommand{\ercauthorlastname}[1]{\def\@ercauthorlastname{#1}}
-\newcommand{\ercinstitution}[1]{\def\@ercinstitution{#1}}
-\newcommand{\ercduration}[1]{\def\@ercduration{#1}}
+\NewDocumentCommand \ercauthor { m } {\def\@ercauthor{#1}}
+\NewDocumentCommand \ercauthorlastname { m } {\def\@ercauthorlastname{#1}}
+\NewDocumentCommand \ercinstitution { m } {\def\@ercinstitution{#1}}
+\NewDocumentCommand \ercduration { m } {\def\@ercduration{#1}}
 
-\newcommand{\erctitle}[1]{\def\@erctitle{#1}}
-\newcommand{\ercacronym}[1]{\def\@ercacronym{#1}}
+\NewDocumentCommand \erctitle { m } {\def\@erctitle{#1}}
+\NewDocumentCommand \ercacronym { m } {\def\@ercacronym{#1}}
 
 \NewDocumentCommand \ercsummary { m } {\def\@ercsummary{#1}}
 \NewDocumentCommand \ercnocrosssummary { } {\def\@erccrosssummaryempty}
@@ -106,9 +106,9 @@
 % add a timestamp in draft mode
 \if@nocomments
     \excludecomment{erccomment}
-    \newcommand{\erchidden}[1]{\empty}
+    \NewDocumentCommand \erchidden { m } {\empty}
 \else
-    \newcommand{\erchidden}[1]{\textcolor{ERCGray}{#1}}
+    \NewDocumentCommand \erchidden { m } {\textcolor{ERCGray}{#1}}
     \newenvironment{erccomment}{%
         \vspace{-0.5cm}
         \setlength{\parskip}{1em}%
