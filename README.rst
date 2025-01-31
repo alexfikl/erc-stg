@@ -5,7 +5,8 @@ LaTeX class and template for the European Research Council (ERC) Starting Grant
 applications. The goal of this template is to be as close as possible to the
 original template provided by the ERC. However, at this time (2024) the call
 imposes very few strict rules for the formatting (margins, font size, font type),
-so you are always free to be more creative with it. For a wonderfully colorful example, see
+so you are always free to be more creative with it. For a wonderfully colorful
+example, see
 `a proposal by Matthew von Hippel <https://4gravitons.com/2024/03/15/an-open-source-grant-proposal/>`__.
 
 * Details and original template is provided
@@ -17,7 +18,7 @@ so you are always free to be more creative with it. For a wonderfully colorful e
   named "Download Part B templates".
 
 **Caution**: This is still a work in progress and it has not been submitted to
-ERC and deemed eligible.
+ERC and deemed eligible. Any help is appreciated!
 
 Fonts
 -----
@@ -75,7 +76,7 @@ The class has three options meant for drafting:
   other alignment issues.
 * ``draftproposal``: adds helpful drafting options, such as line numbers and
   a time stamp.
-* ``nocomments``: disables the ERC template documents. These are just provided
+* ``nocomments``: disables the ERC template comments. These are just provided
   as documentation and should be disabled on the start of a new proposal.
 
 The part B1 and part B2 templates are quite different, so there are some
