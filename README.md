@@ -1,5 +1,12 @@
 # ERC-STG: LaTeX Template
 
+[![GitHub Actions Workflow Status](https://github.com/alexfikl/erc-stg/actions/workflows/ci.yml/badge.svg)](https://github.com/alexfikl/erc-stg/actions/workflows/ci.yml)
+[![Open in Overleaf](https://img.shields.io/static/v1?label=LaTeX&message=Open-in-Overleaf&color=47a141&style=flat&logo=overleaf)](https://www.overleaf.com/docs?snip_uri=https://github.com/alexfikl/erc-stg/archive/refs/heads/main.zip)
+
+> [!NOTE]
+> This is still a work in progress and it has not been submitted to ERC and
+> deemed eligible. Any help is appreciated!
+
 LaTeX class and template for the European Research Council (ERC) Starting Grant
 applications. The goal of this template is to be as close as possible to the
 original template provided by the ERC. However, at this time (2024) the call
@@ -13,9 +20,6 @@ example, see [a proposal by Matthew von Hippel](https://4gravitons.com/2024/03/1
 * For a `rtf` version of the template, you must start the submission process.
   The template will then be available on the left-hand side in a section
   named "Download Part B templates".
-
-**Caution**: This is still a work in progress and it has not been submitted to
-ERC and deemed eligible. Any help is appreciated!
 
 # Fonts
 
