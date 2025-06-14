@@ -83,25 +83,25 @@
 % NOTE: color used for table headers
 \definecolor{ERCTableGray}{RGB}{191, 191, 191}
 
-\NewDocumentCommand \ercauthor { m } {\def\@ercauthor{#1}}
-\NewDocumentCommand \ercauthorlastname { m } {\def\@ercauthorlastname{#1}}
-\NewDocumentCommand \ercinstitution { m } {\def\@ercinstitution{#1}}
-\NewDocumentCommand \ercduration { m } {\def\@ercduration{#1}}
+\NewDocumentCommand \ercauthor { m } {\def\erc@author{#1}}
+\NewDocumentCommand \ercauthorlastname { m } {\def\erc@authorlastname{#1}}
+\NewDocumentCommand \ercinstitution { m } {\def\erc@institution{#1}}
+\NewDocumentCommand \ercduration { m } {\def\erc@duration{#1}}
 
-\NewDocumentCommand \erctitle { m } {\def\@erctitle{#1}}
-\NewDocumentCommand \ercacronym { m } {\def\@ercacronym{#1}}
+\NewDocumentCommand \erctitle { m } {\def\erc@title{#1}}
+\NewDocumentCommand \ercacronym { m } {\def\erc@acronym{#1}}
 
-\NewDocumentCommand \ercsummary { m } {\def\@ercsummary{#1}}
-\NewDocumentCommand \ercnocrosssummary { } {\def\@erccrosssummaryempty}
-\NewDocumentCommand \erccrosssummary { m } {\def\@erccrosssummary{#1}}
+\NewDocumentCommand \ercsummary { m } {\def\erc@summary{#1}}
+\NewDocumentCommand \ercnocrosssummary { } {\def\erc@crosssummaryempty}
+\NewDocumentCommand \erccrosssummary { m } {\def\erc@crosssummary{#1}}
 
-\def\@ercauthor{Applicant Name}
-\def\@ercauthorlastname{Applicant's last name}
-\def\@ercinstitution{Institution Name}
-\def\@ercduration{XX}
+\def\erc@author{Applicant Name}
+\def\erc@authorlastname{Applicant's last name}
+\def\erc@institution{Institution Name}
+\def\erc@duration{XX}
 
-\def\@erctitle{Proposal Full Title}
-% \def\@ercacronym{ACRONYM}
+\def\erc@title{Proposal Full Title}
+% \def\erc@acronym{ACRONYM}
 
 % enable comments only in draft mode
 \if@draftproposal\else
@@ -121,9 +121,9 @@
 \fi
 
 \if@nocomments
-\def\@ercsummary{\hfill \vspace{10.5cm}}
+\def\erc@summary{\hfill \vspace{10.5cm}}
 \else
-\def\@ercsummary{
+\def\erc@summary{
 \erchidden{Proposal summary (identical to the abstract from the online proposal
 submission forms, section 1). \\}
 
@@ -141,7 +141,7 @@ characters (spaces and line breaks included). \\}
 
 \vspace{3.3cm}
 }
-\def\@erccrosssummary{
+\def\erc@crosssummary{
 \erchidden{
 Explain and justify the cross-panel or cross domain nature of your proposal,
 if a secondary panel is indicated in the online proposal submission forms. There is
@@ -170,9 +170,9 @@ a limit of 1000 characters (spaces and line breaks included).
         \RequirePackage{mathptmx}
     \else
         \IfFontExistsTF{Times New Roman}{
-            \setmainfont[Ligatures=Rare]{Times New Roman}}{
+            \setmainfont[Ligatures={TeX,Rare}]{Times New Roman}}{
             \IfFontExistsTF{Nimbus Roman}{
-                \setmainfont{Nimbus Roman}
+                \setmainfont[Ligatures=TeX]{Nimbus Roman}
             }{\PackageWarning{erc-stg}{No Times New Roman-type font could be found}}}
     \fi
 
@@ -188,11 +188,10 @@ a limit of 1000 characters (spaces and line breaks included).
         \renewcommand{\familydefault}{\sfdefault}
     \else
         \IfFontExistsTF{Arial}{
-            \setmainfont{Arial}}{
+            \setmainfont[Ligatures=TeX]{Arial}}{
             \IfFontExistsTF{Nimbus Sans}{
-                \setmainfont{Nimbus Sans}
+                \setmainfont[Ligatures=TeX]{Nimbus Sans}
             }{\PackageWarning{erc-stg}{No Arial-type font could be found}}}
-        \setmainfont{Arial}
     \fi
 \fi
 
@@ -267,8 +266,8 @@ a limit of 1000 characters (spaces and line breaks included).
 \pagestyle{plain}
 \clearpairofpagestyles
 
-\def\callapplicant{\@ercauthorlastname}
-\def\callacronym{\textnormal{\@ifundefined{@ercacronym}{ACRONYM}{\@ercacronym}}}
+\def\callapplicant{\erc@authorlastname}
+\def\callacronym{\textnormal{\@ifundefined{erc@acronym}{ACRONYM}{\erc@acronym}}}
 \def\pagefooter{\textnormal{\thepage}}
 \if@parttwo
     \def\callpart{\textnormal{Part B2 \draftheader}}
@@ -306,27 +305,27 @@ a limit of 1000 characters (spaces and line breaks included).
     }
 
     \vspace{0.3cm}
-    {\huge \@erctitle}
+    {\huge \erc@title}
 
     \vspace{0.3cm}
-    {\huge \@ifundefined{@ercacronym}{PROPOSAL ACRONYM}{\@ercacronym}}
+    {\huge \@ifundefined{erc@acronym}{PROPOSAL ACRONYM}{\erc@acronym}}
     \end{center}
 
     \bigskip
 
     \noindent \textbf{Cover Page:}
     \begin{itemize}[leftmargin=15pt, topsep=0pt, itemsep=0pt]
-        \item[--] Name of the Principal Investigator (PI): \textit{\@ercauthor}
-        \item[--] Name of the PI's Host Institution for the project: \textit{\@ercinstitution}
-        \item[--] Proposal duration in months: \textit{\@ercduration{} months} \\
+        \item[--] Name of the Principal Investigator (PI): \textit{\erc@author}
+        \item[--] Name of the PI's Host Institution for the project: \textit{\erc@institution}
+        \item[--] Proposal duration in months: \textit{\erc@duration{} months} \\
     \end{itemize}
 
     \erchidden{Please delete all text highlighted in gray in this template. \\}
 
-    \noindent\fbox{\parbox{0.987\textwidth}{\@ercsummary}}
+    \noindent\fbox{\parbox{0.987\textwidth}{\erc@summary}}
 
-    \@ifundefined{@erccrosssummaryempty}{
-    \noindent\fbox{\parbox{0.987\textwidth}{\@erccrosssummary}}}{}
+    \@ifundefined{erc@crosssummaryempty}{
+    \noindent\fbox{\parbox{0.987\textwidth}{\erc@crosssummary}}}{}
 
     \newpage
 
