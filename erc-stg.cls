@@ -69,7 +69,7 @@
 % enable comments
 \RequirePackage{comment}
 
-% for everbody's benefit
+% for everybody's benefit
 \RequirePackage[shortlabels]{enumitem}
 
 % >>>
