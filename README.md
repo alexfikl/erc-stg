@@ -21,7 +21,7 @@ example, see [a proposal by Matthew von Hippel](https://4gravitons.com/2024/03/1
   The template will then be available on the left-hand side in a section
   named "Download Part B templates".
 
-# Fonts
+## Fonts
 
 The official ERC guidelines require the Times New Roman, Arial or similar fonts.
 On Windows, these should be available, but on Linux we fall back to the *Nimbus*
@@ -39,7 +39,7 @@ If these do not work for you, you can load fonts yourself using e.g.
 \setmainfont{Times New Roman}
 ```
 
-# Building
+## Building
 
 The resulting PDF files are included for easy viewing, but it is recommended to
 build the two parts with e.g. `latexmk` as follows
@@ -48,7 +48,7 @@ latexmk -pdflua erc-stg-b1-template.tex
 latexmk -pdflua erc-stg-b2-template.tex
 ```
 
-# Functionality
+## Functionality
 
 This packages provides the `erc-stg` class that is based on the
 KOMA-script `scrartcl` class and accepts any options meant for it. It can
