@@ -143,9 +143,9 @@ characters (spaces and line breaks included). \\}
 }
 \def\erc@crosssummary{
 \erchidden{
-Explain and justify the cross-panel or cross domain nature of your proposal,
-if a secondary panel is indicated in the online proposal submission forms. There is
-a limit of 1000 characters (spaces and line breaks included).
+If a secondary panel is indicated in the online proposal submission forms, please
+explain and justify the cross-panel or cross-domain nature of your proposal here.
+There is a limit of 1000 characters (spaces and line breaks included).
 }
 
 \vspace{2cm}
@@ -290,7 +290,7 @@ a limit of 1000 characters (spaces and line breaks included).
     \begin{center}
     \textbf{\large ERC Starting Grant \ercyear}
 
-    \textbf{\Large Research proposal [Part B1]\footnotemark}
+    \textbf{\Large Part B1\footnotemark}
 
     \footnotetext{Instructions for completing Part B1 can be found in the
     ''\textit{Information for Applicants to the Starting and Consolidator Grant
@@ -320,7 +320,7 @@ a limit of 1000 characters (spaces and line breaks included).
         \item[--] Proposal duration in months: \textit{\erc@duration{} months} \\
     \end{itemize}
 
-    \erchidden{Please delete all text highlighted in gray in this template. \\}
+    \erchidden{Text highlighted in grey should be deleted. \\}
 
     \noindent\fbox{\parbox{0.987\textwidth}{\erc@summary}}
 
