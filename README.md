@@ -108,3 +108,28 @@ The following optional helper environments are also defined:
 * `erctable`: a simple wrapper around `tabular` with consistent formatting.
 * `erclongtable`: a simple wrapper around `longtable` with consistent
   formatting.
+
+# Links
+
+Various help around the web:
+
+* [My personal story to obtain an ERC grant – 7 submissions, 4 interviews and 6 heartbreaks](https://www.noelresearchgroup.com/2022/03/17/my-personal-story-to-obtain-an-erc-grant-7-submissions-4-interviews-and-6-heartbreaks/): A little story about submitting ERC grants.
+* [An "Open-Source" Grant Proposal](https://4gravitons.com/2024/03/15/an-open-source-grant-proposal/): Another proposal story.
+* [Some Thoughts on Writing a Successful ERC Proposal](https://ncp.frs-fnrs.be/files/05_WB2017_10_23-ERC-event.pdf): Presentation slides.
+* [UK Research and Innovation](https://www.youtube.com/@ukriforresearchers): YouTube webinars for various ERC grants.
+* [Ghent University](https://www.ugent.be/en/research/funding/eu-int/horizoneurope/erc): Most big universities have some ERC grant help.
+
+Other proposals:
+* [PolyData (2025)](https://github.com/anteromontonio/erc-stg-2025).
+* [SpWrinkle (2021)](https://github.com/ts4051/2021_ERC_StartingGrant).
+* [preQFT (2014)](https://github.com/drjjmc/preQFT_proposal).
+* [FreeCo (2010)](https://figshare.com/articles/journal_contribution/My_successful_ERC_Starting_Grant_Proposal/7110767).
+
+Other templates:
+* By [Catrin Campbell-Moore (2024)](https://www.overleaf.com/latex/templates/unofficial-erc-template-with-versions-package/zyqqjfbckwqc).
+* By [@trappitsch (2024)](https://github.com/trappitsch/erc_latex_template) (for ERC Research Grants).
+* By [@birnstiel (2021)](https://github.com/birnstiel/erc_template).
+* By [@PierreSenellart (2019)](https://github.com/PierreSenellart/erc-latex-template) (for ERC Consolidator Grants).
+* By [@pgarner (2015)](https://github.com/pgarner/erc/tree/master).
+* By [ARJ (2013)](https://www.arj.no/2013/02/03/erc-stg-latex/) (on [Overleaf](https://www.overleaf.com/latex/templates/unofficial-erc-starting-grant-latex-template/spvmnthfqyzm)).
+
