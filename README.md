@@ -126,6 +126,7 @@ Various help around the web:
 Other proposals:
 * [PolyData (2025)](https://github.com/anteromontonio/erc-stg-2025).
 * [SpWrinkle (2021)](https://github.com/ts4051/2021_ERC_StartingGrant).
+* [REALDARK (2020)](https://github.com/caterina-doglioni/CoG-2020)
 * [preQFT (2014)](https://github.com/drjjmc/preQFT_proposal).
 * [FreeCo (2010)](https://figshare.com/articles/journal_contribution/My_successful_ERC_Starting_Grant_Proposal/7110767).
 
