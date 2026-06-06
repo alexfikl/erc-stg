@@ -23,7 +23,7 @@ typos:
 
 [doc("Update license text")]
 license:
-    python -m reuse download CC0-1.0
+    python3 -m reuse download CC0-1.0
     cp LICENSES/CC0-1.0.txt LICENSE
     @rm -rf LICENSES
 
