@@ -95,13 +95,13 @@
 \NewDocumentCommand \ercnocrosssummary { } {\def\erc@crosssummaryempty}
 \NewDocumentCommand \erccrosssummary { m } {\def\erc@crosssummary{#1}}
 
-\def\erc@author{Applicant Name}
-\def\erc@authorlastname{Applicant's last name}
-\def\erc@institution{Institution Name}
-\def\erc@duration{XX}
-
-\def\erc@title{Proposal Full Title}
-% \def\erc@acronym{ACRONYM}
+% set defaults
+\ercauthor{Applicant Name}
+\ercauthor{Applicant's last name}
+\ercinstitution{Institution Name}
+\ercduration{XX}
+\erctitle{Proposal Full Title}
+% \ercacronym{ACRONYM}
 
 % enable comments only in draft mode
 \if@draftproposal\else
