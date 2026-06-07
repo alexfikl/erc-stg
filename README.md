@@ -58,7 +58,7 @@ This packages provides the `erc-stg` class that is based on the
 KOMA-script `scrartcl` class and accepts any options meant for it. It can
 be used as
 ```tex
-\documentclass[11pt,layoutgrid,draftproposal]{erc-stg}
+\documentclass[11pt,partone,arial,draftproposal]{erc-stg}
 
 % ... preamble ...
 
@@ -69,17 +69,19 @@ be used as
 \end{document}
 ```
 
-The class has three options meant for drafting:
+The class has some options that can be used in the `\documentclass` command (as
+above). They are set in the existing template files already. Any unknown
+options are forwarded to the `scrartcl` class. There are three options meant
+for drafting:
 
 * `layoutgrid`: overlays a grid on top of each page to check margins and
   other alignment issues.
 * `draftproposal`: adds helpful drafting options, such as line numbers and
-  a time stamp.
+  a time stamp. This should also be removed from the templates when submitting.
 * `nocomments`: disables the ERC template comments. These are just provided
   as documentation and should be disabled on the start of a new proposal.
 
-The part B1 and part B2 templates are quite different, so there are some
-options to control their formatting:
+The main options control the formatting of part B1 and B2. We have
 
 * `partone`: overwrites `\maketitle` to create the Part B1 title page.
 * `parttwo`: overwrites `\maketitle` for the Part B2 title.
@@ -88,9 +90,9 @@ options to control their formatting:
 * `arial` selects the Arial font (or Helvetica or Nimbus Sans) and ensures
   the sans serif font is the default.
 
-It also provides a few useful commands that can be used in the proposal. These
-should be set in both the Part B1 and Part B2 files to ensure that the proposal
-metadata is available.
+The class also provides a few useful commands that can be used in the proposal.
+These should be set in both the Part B1 and Part B2 files to ensure that the
+proposal metadata is available.
 
 * `\ercauthor`: sets the full author name (first and last name).
 * `\ercauthorlastname`: sets the author's last name (used in the header).
@@ -106,7 +108,7 @@ metadata is available.
 The following optional helper environments are also defined:
 
 * `erccomment`: exclusively used for the ERC documentation comments in the
-  template.
+  template. This is just there so that it can be globally disabled.
 * `erccvitem`: a simple wrapper around `tabular` for adding nicely aligned
   CV items.
 * `erctable`: a simple wrapper around `tabular` with consistent formatting.
