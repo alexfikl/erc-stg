@@ -132,7 +132,7 @@ submission forms, section 1). \\}
 a clear understanding of the objectives of the research proposal and how they will
 be achieved. The abstract will be used as the short description of your research
 proposal in the evaluation process and in communications to contact in particular
-potential  independent external experts and/or to inform the Commission and/or
+potential independent external experts and/or to inform the Commission and/or
 the programme management committees and/or relevant national funding agencies.
 It must therefore be short and precise and should not contain confidential information. \\}
 
@@ -294,8 +294,8 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \textbf{\Large Part B1\footnotemark}
 
     \footnotetext{Instructions for completing Part B1 can be found in the
-    ''\textit{Information for Applicants to the Starting and Consolidator Grant
-    \ercyear\ Calls}``.
+    ``\textit{Information for Applicants to the Starting and Consolidator Grant
+    \ercyear\ Calls}''.
     }
 
     \erchidden{
