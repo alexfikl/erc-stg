@@ -8,10 +8,6 @@
 \usepackage[hypertexnames=false,breaklinks=true]{hyperref}
 \usepackage[table]{xcolor}
 
-% better environments
-\usepackage[nameinlink, noabbrev]{cleveref}
-\usepackage[shortlabels]{enumitem}
-
 % better typography
 \usepackage{microtype}
 
@@ -52,12 +48,6 @@
 \geometry{top=2.25cm, bottom=2.25cm, left=2.35cm, right=2.35cm}
 
 \NewDocumentCommand \erccomment { m } {\textcolor{ERCGray}{#1}}
-\NewDocumentCommand \ercentry { sm } {%
-\noindent\begin{tabular}{@{}l}
-\textit{#2} \\[1em]
-\IfBooleanTF#1{\makebox[0.8\textwidth]{\dotfill}}{\makebox[0.4\textwidth]{\dotfill};\makebox[0.4\textwidth]{\dotfill}}
-\end{tabular}%
-}
 
 % }}}
 
