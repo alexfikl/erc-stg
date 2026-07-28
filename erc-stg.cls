@@ -165,15 +165,15 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \RequirePackage{fontspec}
 \fi
 
-% required font is Times New Roman (or Nimbus Roman on Linux)
+% required font is Times New Roman (or TeX Gyre on Linux)
 \if@timesnewroman
     \ifpdftex
-        \RequirePackage{mathptmx}
+        \RequirePackage{tgtermes}
     \else
         \IfFontExistsTF{Times New Roman}{
             \setmainfont[Ligatures={TeX,Rare}]{Times New Roman}}{
-            \IfFontExistsTF{Nimbus Roman}{
-                \setmainfont[Ligatures=TeX]{Nimbus Roman}
+            \IfFontExistsTF{TeX Gyre Termes}{
+                \setmainfont[Ligatures=TeX]{TeX Gyre Termes}
             }{\PackageWarning{erc-stg}{No Times New Roman-type font could be found}}}
     \fi
 
@@ -183,15 +183,15 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 \if@arial
     \ifpdftex
-        \RequirePackage{helvet}
+        \RequirePackage{tgheros}
 
         % force sans serif fonts
         \renewcommand{\familydefault}{\sfdefault}
     \else
         \IfFontExistsTF{Arial}{
             \setmainfont[Ligatures=TeX]{Arial}}{
-            \IfFontExistsTF{Nimbus Sans}{
-                \setmainfont[Ligatures=TeX]{Nimbus Sans}
+            \IfFontExistsTF{TeX Gyre Heros}{
+                \setmainfont[Ligatures=TeX]{TeX Gyre Heros}
             }{\PackageWarning{erc-stg}{No Arial-type font could be found}}}
     \fi
 \fi

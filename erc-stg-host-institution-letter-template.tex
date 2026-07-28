@@ -17,13 +17,13 @@
 
 \ifpdftex
     \usepackage[T1]{fontenc}
-    \usepackage{mathptmx}
+    \usepackage{tgtermes}
 \else
     \usepackage{fontspec}
     \IfFontExistsTF{Times New Roman}{
         \setmainfont[Ligatures=Rare]{Times New Roman}}{
-        \IfFontExistsTF{Nimbus Roman}{
-            \setmainfont{Nimbus Roman}
+        \IfFontExistsTF{TeX Gyre Termes}{
+            \setmainfont{TeX Gyre Termes}
         }{\PackageWarning{erc-stg}{No Times New Roman-type font could be found}}}
 \fi
 

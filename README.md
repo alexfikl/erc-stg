@@ -27,11 +27,13 @@ example, see [a proposal by Matthew von Hippel](https://4gravitons.com/2024/03/1
 
 ## Fonts
 
-The official ERC guidelines require the Times New Roman, Arial or similar fonts.
-On Windows, these should be available, but on Linux we fall back to the *Nimbus*
-family of fonts. When using PDFLaTeX this class uses the `mathptmx` font. When
-using XeLaTeX or LuaLaTeX, we try to load the Times New Roman font and, if it
-is not available, the Nimbus Roman font (or Arial and Nimbus Sans, respectively).
+The official ERC guidelines require the Times New Roman, Arial or similar
+fonts. On Windows, these should be available, but on Linux we fall back to the
+*TeX Gyre* family of fonts. When using PDFLaTeX this class uses the `tgtermes`
+package. When using XeLaTeX or LuaLaTeX, we try to load the Times New Roman
+font and, if it is not available, the TeX Gyre Terms font (or Arial and TeX
+Gyre Heros, respectively). The official manual recommends the *Nimbus* fonts
+(Nimbus Roman and Nimbus Sans), which are metrically compatible with TeX Gyre.
 
 If these do not work for you, you can load fonts yourself using e.g.
 
@@ -88,9 +90,9 @@ The main options control the formatting of part B1 and B2. We have
 
 - `partone`: overwrites `\maketitle` to create the Part B1 title page.
 - `parttwo`: overwrites `\maketitle` for the Part B2 title.
-- `timesnewroman`: selects the Times New Roman font (or Nimbus Roman) and
+- `timesnewroman`: selects the Times New Roman font (or TeX Gyre Terms) and
   ensures that the serif font is the default.
-- `arial` selects the Arial font (or Helvetica or Nimbus Sans) and ensures
+- `arial` selects the Arial font (or TeX Gyre Heros) and ensures
   the sans serif font is the default.
 
 The class also provides a few useful commands that can be used in the proposal.
