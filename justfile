@@ -17,7 +17,7 @@ template:
     @just pdf erc-stg-b1-template
     @just pdf erc-stg-b2-template
     @just pdf erc-stg-host-institution-letter-template
-    @just pdf erc-stg-eligibility-extension-request
+    @just pdf erc-stg-eligibility-extension-request-template
 
 # }}}
 
