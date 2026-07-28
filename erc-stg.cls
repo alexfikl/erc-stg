@@ -117,7 +117,8 @@
     \newenvironment{erccomment}{%
         \vspace{-0.5cm}
         \setlength{\parskip}{1em}%
-        \color{ERCGray}}{}
+        \setlength{\parindent}{0pt}
+        \color{ERCGray}}{\medskip}
 \fi
 
 \if@nocomments

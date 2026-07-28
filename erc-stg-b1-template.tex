@@ -6,6 +6,7 @@
 % {{{ packages
 
 % better environments
+\usepackage[shortlabels]{enumitem}
 \usepackage[nameinlink, noabbrev]{cleveref}
 \usepackage{booktabs}
 \usepackage{caption}
@@ -16,7 +17,7 @@
 
 % }}}
 
-% {{{ title
+% {{{ metadata
 
 % \ercauthor{John Doe}
 % \ercauthorlastname{Doe}
@@ -40,47 +41,38 @@ do not count towards the page limit)}
 \label{sc:synopsis}
 
 \begin{erccomment}
-\textbf{Please note the changes as from 2026 calls regarding Part I and Part II
-of the Scientific Proposal and read carefully the ``ERC Work Programme 2026``
-and the ``Information for Applicants to the Starting and Consolidator Grant
-2026 Calls''.}
-
-\bigskip
-
-\end{erccomment}
-
-\begin{erccomment}
-
-[\textbf{Part I of the Scientific Proposal} should present the envisaged research
+\textbf{Part I of the Scientific Proposal} should present the envisaged research
 and it should:
-\begin{itemize} \setlength{\itemsep}{-5pt}
+\begin{itemize}[leftmargin=*, nosep]
     \item lay out the current state of knowledge,
     \item explain the scientific question and the objectives of the project, and
     \item present the overall approach or research strategy to reach the goals
     of the project.
 \end{itemize}
 
-Part I should convince the evaluation Panel that it presents an original and
-creative idea addressing an important question in the respective research
-field(s). Furthermore, it should substantiate how the project will advance the
-frontier of knowledge, and what contribution it will make to the research
-field(s) i.e.\ what may be changed, opened, challenged or how the results of the
-work will alter the current understanding of the field.
+Part I should convince the evaluation Panel that the proposal presents an original and
+creative idea addressing an important question in the research field(s). It should
+explain how the project will advance the frontier of knowledge, and what contribution it
+will make to the research field(s) i.e.\ what may be changed, opened, challenged or how
+the results of the work will alter the current understanding of the field.
 
-\textbf{At Step 1, only Part I and the Curriculum Vitae (CV) and Track Record
-(see below) is assessed by the evaluation Panel}. It forms the basis for the
-Panel’s decision whether it chooses to evaluate the proposal in the next step.
-Therefore, all essential information must be covered in this section.
+When preparing Part I of the Scientific Proposal, applicants should keep in mind the
+evaluation elements assessed by the panel at Step 1 --- see Section 1.6.5 of the ``ERC
+Work Programme 2027''.
 
-References to literature should also be included. Please use a reference style
-that is commonly used in your discipline such as American Chemical Society
-(ACS) style, American Medical Association (AMA) style, Modern Language
-Association (MLA) style, etc.\ and that allows the evaluators to easily retrieve
-each reference.
+\textbf{At Step 1 of the evaluation, only Part I and the Curriculum Vitae (CV) and Track
+Record (see below) are assessed by the evaluation panel}. Part I forms the basis for the
+panel’s decision whether to evaluate the proposal in the next step. Therefore, all
+essential information must be covered in this part.
 
-\textbf{Please respect the following formatting constraints: Times New Roman,
-Arial or similar, at least font size 11, margin sizes (2.0 cm side and 1.5 cm
-top and bottom), single line spacing.]}
+References to literature should also be included. Please use a reference style that is
+commonly used in your discipline such as American Chemical Society (ACS) style, American
+Medical Association (AMA) style, Modern Language Association (MLA) style, etc.\ and that
+allows the evaluators to easily retrieve each reference.
+
+\textbf{Please respect the following formatting constraints: Times New Roman, Arial or
+similar, at least font size 11, margin sizes (2.0 cm side and 1.5 cm top and bottom),
+single line spacing.}
 \end{erccomment}
 
 \newpage
@@ -89,22 +81,22 @@ top and bottom), single line spacing.]}
 \label{sc:sv}
 
 \begin{erccomment}
-[You may modify the below template if necessary.]
+You may modify the below template if necessary.
 \end{erccomment}
 
 \subsection*{PERSONAL DETAILS}
 \label{ssc:cv:details}
 
 \begin{erccomment}
-[Provide your personal details, your education and key qualifications, current
-position(s) and relevant previous positions you have held.] \\
+Provide your personal details, your education and key qualifications, current
+position(s) and relevant previous positions you have held.
 \end{erccomment}
 
-Family name, First name:
+\noindent Family name, First name:
 
-Researcher unique identifier(s) (such as ORCiD, Research ID, etc.):
+\noindent Researcher unique identifier(s) (such as ORCiD, Researcher ID, etc. \dots):
 
-URL for web site:
+\noindent URL for website:
 
 \subsubsection*{Education and key qualifications}
 \label{ssc:cv:education}
@@ -112,25 +104,25 @@ URL for web site:
 \begin{erccvitem}
 DD/MM/YYYY & \textbf{Ph.D.} \\
 & Name of Faculty / Department, Name of University / Institution, Country, \\
-& \underline{Name of PhD supervisor}.
+& \underline{Name of PhD Supervisor}.
 \end{erccvitem}
 \medskip
 
 \begin{erccvitem}
-DD/MM/YYYY & \textbf{Master's Degree} \\
+DD/MM/YYYY & \textbf{Master} \\
 & Name of Faculty / Department, Name of University / Institution, Country.
 \end{erccvitem}
 
 \subsubsection*{Current position(s)}
 
 \begin{erccvitem}
-YYYY -- YYYY & \textbf{Current position} \\
+YYYY -- YYYY & \textbf{Current Position} \\
 & Name of Faculty / Department, Name of University / Institution, Country.
 \end{erccvitem}
 \medskip
 
 \begin{erccvitem}
-YYYY -- YYYY & \textbf{Current position} \\
+YYYY -- YYYY & \textbf{Current Position} \\
 & Name of Faculty / Department, Name of University / Institution, Country.
 \end{erccvitem}
 
@@ -150,7 +142,7 @@ YYYY -- YYYY & \textbf{Position held} \\
 \subsection*{RESEARCH ACHIEVEMENTS AND PEER RECOGNITION}
 \label{ssc:cv:research}
 
-\subsubsection*{Research Achievements}
+\subsubsection*{Research achievements}
 
 \begin{erccomment}
 Provide a list of up to ten research outputs that demonstrate how you have
@@ -165,7 +157,7 @@ selected outputs, your role in producing each of them, and how they demonstrate
 your capacity to successfully carry out your proposed project.
 \end{erccomment}
 
-\subsubsection*{Peer Recognition}
+\subsubsection*{Peer recognition}
 
 \begin{erccomment}
 Provide a list of selected examples of significant recognition by your peers
@@ -181,40 +173,40 @@ You may include a short explanation of the significance of the listed examples.
 \label{ssc:cv:additional_information}
 
 \begin{erccomment}
-[You may provide relevant additional information on your research career to
+You may provide relevant additional information on your research career to
 provide context to the evaluation panels when assessing your research
-achievements and peer recognition as described above.]
+achievements and peer recognition as described above.
 \end{erccomment}
 
-\subsubsection*{Career breaks, diverse career paths, and major life events}
+\subsubsection*{Career breaks, diverse career paths and major life events}
 
 \begin{erccomment}
-[You may include a short factual explanation of career breaks or diverse career
-paths such as secondments, volunteering, part-time work, time spent in
-different sectors or the effects of major life events such as long term illness
-as well as the effects of pandemic restrictions on research productivity.]
+You may include a short factual explanation of career breaks or diverse career paths
+such as secondments, volunteering, part-time work, time spent in different sectors or
+the effects of major life events such as long term illness, including events that have
+no impact on eligibility, such as the effects of pandemic restrictions on research
+productivity.
 \end{erccomment}
 
 \subsubsection*{Other contributions to the research community}
 
 \begin{erccomment}
-[You may include a list of particularly noteworthy contributions to the
+You may include a list of particularly noteworthy contributions to the
 research community you have made other than research achievements and peer
-recognition and a short explanation of these contributions. The purpose of this
-section is to allow the panels to take a more rounded view of your career and
+recognition, and a short explanation of these contributions. The purpose of this
+section is to allow the evaluation Panel to take a more rounded view of your career and
 achievements and to ensure that any additional responsibilities, commitments
 and leadership roles that you have taken on beyond your individual research
-activities are recognised and taken into account.]
+activities are recognised and taken into account.
 
-\textbf{ [(for more information see ``Information for Applicants to the
-Starting and Consolidator Grant 2026 Calls'')] }
+\textbf{(for more information see ``Information for Applicants to the
+Starting and Consolidator Grant 2027 Calls'')}
 
-\textbf{Do NOT split the sections and/or references in Part B1 and do NOT
-upload them as separate documents. The peer reviewers will only receive one
-single document for evaluation at Step 1. Hence, Part B1 should contain all
-elements as explained in this template. If some parts of Part B1 are uploaded
-in the submission system as separate attachments, the peer reviewers will not
-have access to them.}
+\textbf{Do NOT split Part I from the CV and Track Record and/or references and do NOT
+upload them as separate documents. The peer reviewers will only receive one single
+document for evaluation at Step 1. Hence, Part B1 should contain all elements as
+explained in this template. If some parts of Part B1 are uploaded in the submission
+system as separate attachments, the peer reviewers will not have access to them.}
 \end{erccomment}
 
 \end{document}
