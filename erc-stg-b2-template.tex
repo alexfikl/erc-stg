@@ -1,3 +1,6 @@
+% badness-ignore-file hard-coded-reference
+% badness-ignore-file unreferenced-label
+
 \documentclass[11pt,timesnewroman,parttwo,draftproposal]{erc-stg}
 
 % {{{ packages
@@ -10,27 +13,6 @@
 
 % better typography
 \usepackage{microtype}
-
-\newenvironment{granttable}{
-\begin{erctable}[\normalsize]{
-    |m{0.13\textwidth}
-    |m{0.13\textwidth}
-    |m{0.13\textwidth}
-    |m{0.13\textwidth}
-    |m{0.13\textwidth}
-    |m{0.195\textwidth}
-    |} \hline
-\rowcolor{ERCTableGray}
-\centering\arraybackslash \textit{Project title} &
-\centering\arraybackslash \textit{Funding source} &
-\centering\arraybackslash \textit{Amount (Euros)} &
-\centering\arraybackslash \textit{Period} &
-\centering\arraybackslash \textit{Role of the PI} &
-\centering\arraybackslash \textit{Relation to current ERC proposal\footnotemark[2]} \\
-\hline
-}{
-\end{erctable}
-}
 
 % }}}
 
@@ -119,7 +101,7 @@ access to them.}
 
 \medskip
 
-\noindent \textbf{Current research grants (Please indicate "No funding" when applicable):}
+\noindent \textbf{Current research grants (Please indicate ``No funding'' when applicable):}
 
 \begin{granttable}
 & & & & & \\\hline
@@ -127,7 +109,7 @@ access to them.}
 & & & & & \\\hline
 \end{granttable}
 
-\noindent \textbf{On-going / submitted grant applications (Please indicate "None"
+\noindent \textbf{On-going / submitted grant applications (Please indicate ``None''
 when applicable):}
 
 \begin{granttable}

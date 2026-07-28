@@ -55,11 +55,7 @@
 \NewDocumentCommand \ercentry { sm } {%
 \noindent\begin{tabular}{@{}l}
 \textit{#2} \\[1em]
-\IfBooleanTF#1{
-........................................................
-}{
-........................................................;
-........................................................}
+\IfBooleanTF#1{\makebox[0.8\textwidth]{\dotfill}}{\makebox[0.4\textwidth]{\dotfill};\makebox[0.4\textwidth]{\dotfill}}
 \end{tabular}%
 }
 

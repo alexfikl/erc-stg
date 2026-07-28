@@ -97,7 +97,7 @@
 
 % set defaults
 \ercauthor{Applicant Name}
-\ercauthor{Applicant's last name}
+\ercauthorlastname{Applicant's Last Name}
 \ercinstitution{Institution Name}
 \ercduration{XX}
 \erctitle{Proposal Full Title}
@@ -386,6 +386,27 @@ There is a limit of 1000 characters (spaces and line breaks included).
 \begin{tabular}{>{\centering}m{0.15\textwidth}m{0.85\textwidth}}
 }{
 \end{tabular}
+}
+
+\newenvironment{granttable}{
+\begin{erctable}[\normalsize]{
+    |m{0.13\textwidth}
+    |m{0.13\textwidth}
+    |m{0.13\textwidth}
+    |m{0.13\textwidth}
+    |m{0.13\textwidth}
+    |m{0.195\textwidth}
+    |} \hline
+\rowcolor{ERCTableGray}
+\centering\arraybackslash \textit{Project title} &
+\centering\arraybackslash \textit{Funding source} &
+\centering\arraybackslash \textit{Amount (Euros)} &
+\centering\arraybackslash \textit{Period} &
+\centering\arraybackslash \textit{Role of the PI} &
+\centering\arraybackslash \textit{Relation to current ERC proposal\footnotemark[2]} \\
+\hline
+}{
+\end{erctable}
 }
 
 % >>>
