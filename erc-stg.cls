@@ -103,6 +103,14 @@
 \erctitle{Proposal Full Title}
 % \ercacronym{ACRONYM}
 
+% inserting commands
+\insertercauthor {} {\erc@author}
+\insertercauthorlastname {} {\erc@authorlastname}
+\insertercinstitution {} {\erc@institution}
+\insertercduration {} {\erc@duration}
+\inserterctitle {} {\erc@title}
+\insertercacronym {} {\erc@acronym}
+
 % enable comments only in draft mode
 \if@draftproposal\else
     \@nocommentstrue

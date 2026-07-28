@@ -99,12 +99,12 @@ The class also provides a few useful commands that can be used in the proposal.
 These should be set in both the Part B1 and Part B2 files to ensure that the
 proposal metadata is available.
 
-- `\ercauthor`: sets the full author name (first and last name).
-- `\ercauthorlastname`: sets the author's last name (used in the header).
-- `\ercinstitution`: sets the hosting institution.
-- `\ercduration`: sets the duration of the project (in months).
-- `\erctitle`: sets the proposal title.
-- `\ercacronym`: sets the proposal acronym (must match the title).
+- `\ercauthor`, `\insertercauthor`: sets the full author name (first and last name).
+- `\ercauthorlastname`, `\insertercauthorlastname`: sets the author's last name (used in the header).
+- `\ercinstitution`, `\insertercinstitution`: sets the hosting institution.
+- `\ercduration`, `\insertercduration`: sets the duration of the project (in months).
+- `\erctitle`, `\inserterctitle`: sets the proposal title.
+- `\ercacronym`, `\insertercacronym`: sets the proposal acronym (must match the title).
 - `\ercsummary`: defines the summary that appears on the title page of Part B1.
 - `\erccrossummary`: defines the cross-disciplinary proposal justification
   that appears on the title page of Part B1. If no such justification is needed,
