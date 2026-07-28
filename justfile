@@ -60,7 +60,7 @@ badness:
         erc-stg-b1-template.tex \
         erc-stg-b2-template.tex \
         erc-stg-host-institution-letter-template.tex \
-        erc-stg-eligibility-extension-request.tex
+        erc-stg-eligibility-extension-request-template.tex
     @echo -e "\e[1;32mbadness clean!\e[0m"
 
 # }}}
