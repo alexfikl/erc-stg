@@ -63,7 +63,7 @@ KOMA-script `scrartcl` class and accepts any options meant for it. It can
 be used as
 
 ```tex
-\documentclass[11pt,partone,arial,draftproposal]{erc-stg}
+\documentclass[11bp,arial,partone,draftproposal]{erc-stg}
 
 % ... preamble ...
 
