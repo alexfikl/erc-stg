@@ -4,10 +4,10 @@
 [![Open in Overleaf](https://img.shields.io/static/v1?label=LaTeX&message=Open-in-Overleaf&color=47a141&style=flat&logo=overleaf)](https://www.overleaf.com/docs?snip_uri=https://github.com/alexfikl/erc-stg/archive/refs/heads/main.zip)
 
 > [!NOTE]
-> This is un unofficial template based on the templates provided by the ERC
+> This is an **unofficial** template based on the templates provided by the ERC
 > program (originally in RTF format). The template is fairly complete and has been
-> update to the 2025 version of the ERC Starting Grants call. However, it was
-> not submitted to the ERC and deemed eligible (to my knowledge), so use with
+> update to the 2026 version of the ERC Starting Grants call. However, it was
+> **not submitted to the ERC** and deemed eligible (to my knowledge), so use with
 > care and double check with the official template. Any help ironing out
 > discrepancies is highly appreciated!
 
