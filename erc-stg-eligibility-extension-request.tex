@@ -1,0 +1,123 @@
+\documentclass[12pt]{scrartcl}
+
+% {{{ packages
+
+\usepackage{iftex}
+\usepackage{xparse}
+\usepackage{geometry}
+\usepackage[hypertexnames=false,breaklinks=true]{hyperref}
+\usepackage[table]{xcolor}
+
+% better environments
+\usepackage[nameinlink, noabbrev]{cleveref}
+\usepackage[shortlabels]{enumitem}
+
+% better typography
+\usepackage{microtype}
+
+\ifpdftex
+    \usepackage[T1]{fontenc}
+    \usepackage{mathptmx}
+\else
+    \usepackage{fontspec}
+    \IfFontExistsTF{Times New Roman}{
+        \setmainfont[Ligatures=Rare]{Times New Roman}}{
+        \IfFontExistsTF{Nimbus Roman}{
+            \setmainfont{Nimbus Roman}
+        }{\PackageWarning{erc-stg}{No Times New Roman-type font could be found}}}
+\fi
+
+% force serif fonts
+\addtokomafont{disposition}{\rmfamily}
+
+% }}}
+
+% {{{ formatting
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    citecolor=black,
+    linkcolor=black
+}
+
+% NOTE: color used for comments
+\definecolor{ERCGray}{RGB}{140, 140, 140}
+
+\KOMAoptions{
+    paper=A4,
+    parskip=half,
+    footnotes=multiple,
+}
+
+\geometry{top=2.25cm, bottom=2.25cm, left=2.35cm, right=2.35cm}
+
+\NewDocumentCommand \erccomment { m } {\textcolor{ERCGray}{#1}}
+\NewDocumentCommand \ercentry { sm } {%
+\noindent\begin{tabular}{@{}l}
+\textit{#2} \\[1em]
+\IfBooleanTF#1{\makebox[0.8\textwidth]{\dotfill}}{\makebox[0.4\textwidth]{\dotfill};\makebox[0.4\textwidth]{\dotfill}}
+\end{tabular}%
+}
+
+% }}}
+
+\begin{document}
+
+\begin{center}
+\textbf{ELIGIBILITY EXTENSION REQUEST}
+\end{center}
+
+\erccomment{
+\textbf{THE ELIGIBILITY CALCULATION WILL BE BASED ON THE SUCCESSFUL PHD DEFENCE DATE;
+PLEASE ATTACH THE REQUESTED DOCUMENTS TO PROVE YOUR PHD DEFENCE DATE AND THE DOCUMENT(S)
+SUPPORTING YOUR EXTENSION REQUEST.}
+}
+
+In connection with my \erccomment{[call identifier: STG 2027/ COG 2027]} proposal
+acronym \erccomment{[indicate acronym]}, I am requesting an extension of the eligibility
+window period due to:
+
+\vfill
+
+Calculation of the extension period for the applicable circumstances \erccomment{[each
+event should be listed separately]}:
+
+{
+\footnotesize
+\begin{tabular}{
+    |b{0.03\textwidth}
+    |b{0.11\textwidth}
+    |b{0.218\textwidth}
+    |b{0.098\textwidth}
+    |b{0.09\textwidth}
+    |b{0.165\textwidth}
+    |b{0.11\textwidth}|
+} \hline
+\textbf{No.} &
+\textbf{Leave/Event} &
+\textbf{Short description$^{**}$} &
+\textbf{Start date$^*$} &
+\textbf{End date$^*$} &
+\textbf{Calculated number of days/months/years} &
+\textbf{Supporting document(s) (type)} \\\hline
+\textbf{1.} & & & & & & \\\hline
+\textbf{2.} & & & & & & \\\hline
+\textbf{3.} & & & & & & \\\hline
+\multicolumn{5}{|l|}{\textbf{Total extension request (1 + 2 + 3 + \dots):}} &
+\multicolumn{2}{l|}{}
+\\\hline
+\end{tabular}
+\erccomment{
+* not needed for a flat rate. \\
+** if applicable, e.g.\ taking care of a sick family member.
+}
+\vspace{1cm}
+}
+
+\footnotetext[1]{Over 90 days for the Principal Investigator or a close family member
+(child, spouse, parent or sibling).}
+
+\footnotetext[2]{For a minimum of 90 days.}
+\end{document}
+
+% kate: default-dictionary en_GB;

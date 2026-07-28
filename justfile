@@ -17,6 +17,7 @@ template:
     @just pdf erc-stg-b1-template
     @just pdf erc-stg-b2-template
     @just pdf erc-stg-host-institution-letter-template
+    @just pdf erc-stg-eligibility-extension-request
 
 # }}}
 
@@ -58,7 +59,8 @@ badness:
     badness lint \
         erc-stg-b1-template.tex \
         erc-stg-b2-template.tex \
-        erc-stg-host-institution-letter-template.tex
+        erc-stg-host-institution-letter-template.tex \
+        erc-stg-eligibility-extension-request.tex
     @echo -e "\e[1;32mbadness clean!\e[0m"
 
 # }}}
