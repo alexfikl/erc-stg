@@ -392,7 +392,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 \newenvironment{erccvitem}{
 \noindent
-\begin{tabular}{>{\centering}m{0.15\textwidth}m{0.85\textwidth}}
+\begin{tabular}{>{\centering}m{0.16\textwidth}m{0.84\textwidth}}
 }{
 \end{tabular}
 }
