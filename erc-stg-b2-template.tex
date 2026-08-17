@@ -14,6 +14,14 @@
 % better typography
 \usepackage{microtype}
 
+% bibliography
+% NOTE: update the style to one that is used by your field (ACS, ACM, MLA, etc.)
+% NOTE: to use older BibTeX styles (.bst files), use natbib or some other package
+% instead. This will also require updating the \printbibliography call below
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+\renewcommand*{\bibfont}{\normalsize}
+
 % }}}
 
 % {{{ title
@@ -38,9 +46,8 @@ do not count towards the page limits).}
 \bigskip
 
 \begin{erccomment}
-Text highlighted in grey should be deleted.
-
-\bigskip
+Text highlighted in grey should be deleted. See the official
+manual~\cite{ERC2026InfoApplicants} for more information.
 
 Part II of the Scientific Proposal should be a detailed explanation of the project
 implementation, including research methodology, work plan, risk assessment, and
@@ -50,24 +57,20 @@ section, a detailed and exhaustive budget breakdown, justifying the resources re
 must be provided in the online submission form in the section specifically dedicated to
 Resources and Time Commitment.
 
-\bigskip
-
 \textbf{Please respect the following formatting constraints: Times New Roman,
 Arial or similar, at least font size 11, margins (2.0 cm side and 1.5 cm top
 and bottom), single line spacing.}
 
-\bigskip
-
 \textbf{Do NOT split Part II from the references and/or the appendix (Funding
 ID) and do NOT upload them as separate documents.}
-
-\bigskip
 
 \textbf{The Resources section and the detailed budget table are part of the online
 submission form (Part A, Budget) which will be extracted and provided to the peer
 reviewers. Therefore, do not include and repeat the description of resources or budget
 table here (Part B2).}
 \end{erccomment}
+
+\printbibliography
 
 \newpage
 

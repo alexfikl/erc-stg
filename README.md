@@ -25,26 +25,22 @@ example, see [a proposal by Matthew von Hippel](https://4gravitons.com/2024/03/1
   The template will then be available on the left-hand side in a section
   named "Download Part B templates".
 
-## Fonts
+## Usage
 
-The official ERC guidelines require the Times New Roman, Arial or similar
-fonts. On Windows, these should be available, but on Linux we fall back to the
-*TeX Gyre* family of fonts. When using PDFLaTeX this class uses the `tgtermes`
-package. When using XeLaTeX or LuaLaTeX, we try to load the Times New Roman
-font and, if it is not available, the TeX Gyre Terms font (or Arial and TeX
-Gyre Heros, respectively). The official manual recommends the *Nimbus* fonts
-(Nimbus Roman and Nimbus Sans), which are metrically compatible with TeX Gyre.
+To use this template for your own grant proposal, you'll need to copy over
+the Part B1 (`erc-stg-b1-template.tex`) and Part B2 (`erc-stg-b2-template.tex`)
+template files. They both use the main document class definition from
+`erc-stg.cls` and the bibliography file `bibliography.bib`. The repository also
+contains two optional documents:
 
-If these do not work for you, you can load fonts yourself using e.g.
+- `erc-stg-eligibility-extension-request-template.tex`: A template for the form
+  needed to request an extension for the grant.
+- `erc-stg-host-institution-letter-template.tex`: A template for the form needed
+  to attest that the host institution is willing to participate in the project.
 
-```tex
-% on PDFLaTeX
-\usepackage{newtxtext}
-\usepackage{newtxmath}
-
-% on XeLaTeX / LuaLaTeX
-\setmainfont{Times New Roman}
-```
+When starting to work on the proposal, add the `nocomments` option to the
+`\documentclass` at the top to remove all the explanations from the document
+itself. You can, of course, just delete them too.
 
 ## Building
 
@@ -56,11 +52,14 @@ latexmk -pdflua erc-stg-b1-template.tex
 latexmk -pdflua erc-stg-b2-template.tex
 ```
 
+Using `latexmk` is recommended because it will nicely handle generating the
+bibliography for you. If you use an IDE or Overleaf, this will be handled
+automatically.
+
 ## Functionality
 
-This packages provides the `erc-stg` class that is based on the
-KOMA-script `scrartcl` class and accepts any options meant for it. It can
-be used as
+This packages provides the `erc-stg` class that is based on the KOMA-script
+`scrartcl` class and accepts any options meant for it. It can be used as
 
 ```tex
 \documentclass[11bp,arial,partone,draftproposal]{erc-stg}
@@ -119,6 +118,33 @@ The following optional helper environments are also defined:
 - `erctable`: a simple wrapper around `tabular` with consistent formatting.
 - `erclongtable`: a simple wrapper around `longtable` with consistent
   formatting.
+
+## Fonts
+
+The official ERC guidelines require the Times New Roman, Arial or similar
+fonts. On Windows, these should be available, but on Linux we fall back to the
+*TeX Gyre* family of fonts. When using PDFLaTeX this class uses the `tgtermes`
+package. When using XeLaTeX or LuaLaTeX, we try to load the Times New Roman
+font and, if it is not available, the TeX Gyre Terms font (or Arial and TeX
+Gyre Heros, respectively). The official manual recommends the *Nimbus* fonts
+(Nimbus Roman and Nimbus Sans), which are metrically compatible with TeX Gyre.
+
+If these do not work for you, you can load fonts yourself using e.g.
+
+```tex
+% on PDFLaTeX
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% on XeLaTeX / LuaLaTeX
+\setmainfont{Times New Roman}
+
+% or Nimbus Roman, if Times New Roman is not available
+\setmainfont{Nimbus Roman}
+
+% or Nimbus Sans, if Arial is not available
+\setmainfont{Nimbus Sans}
+```
 
 # Links
 
