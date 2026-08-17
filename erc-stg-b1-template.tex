@@ -15,6 +15,14 @@
 % better typography
 \usepackage{microtype}
 
+% bibliography
+% NOTE: update the style to one that is used by your field (ACS, ACM, MLA, etc.)
+% NOTE: to use older BibTeX styles (.bst files), use natbib or some other package
+% instead. This will also require updating the \printbibliography call below
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+\renewcommand*{\bibfont}{\normalsize}
+
 % }}}
 
 % {{{ metadata
@@ -72,8 +80,11 @@ allows the evaluators to easily retrieve each reference.
 
 \textbf{Please respect the following formatting constraints: Times New Roman, Arial or
 similar, at least font size 11, margin sizes (2.0 cm side and 1.5 cm top and bottom),
-single line spacing.}
+single line spacing.} See the official manual~\cite{ERC2026InfoApplicants} for more
+information.
 \end{erccomment}
+
+\printbibliography
 
 \newpage
 
