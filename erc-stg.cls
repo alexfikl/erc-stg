@@ -27,6 +27,10 @@
 \newif\if@arial \@arialfalse
 \DeclareOption{arial}{\@arialtrue}
 
+% enable tagging / accessibility functionality for PDF/UA-2
+\newif\if@tagged \@taggedfalse
+\DeclareOption{tagged}{\@taggedtrue}
+
 % draft features
 \newif\if@draftproposal \@draftproposalfalse
 \DeclareOption{draftproposal}{\@draftproposaltrue}
@@ -69,9 +73,6 @@
 \RequirePackage{setspace}
 % enable comments
 \RequirePackage{comment}
-
-% for everybody's benefit
-\RequirePackage[shortlabels]{enumitem}
 
 % >>>
 
@@ -392,6 +393,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
 }
 
 \newenvironment{erccvitem}{
+\if@tagged\tagpdfsetup{table/tagging=presentation}\fi
 \noindent
 \begin{tabular}{>{\centering}m{0.16\textwidth}m{0.84\textwidth}}
 }{
@@ -399,6 +401,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
 }
 
 \newenvironment{granttable}{
+\if@tagged\tagpdfsetup{table/tagging=true, table/header-rows={1}}\fi
 \begin{erctable}[\normalsize]{
     |m{0.13\textwidth}
     |m{0.13\textwidth}
