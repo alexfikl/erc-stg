@@ -63,6 +63,31 @@ badness:
         erc-stg-eligibility-extension-request-template.tex
     @echo -e "\e[1;32mbadness clean!\e[0m"
 
+[private]
+ua_check basename format:
+    verapdf \
+        --flavor ua2 --format {{ format }} --progress \
+        {{ basename }}.pdf > {{ basename }}-pdf-ua-2.{{ format }}
+    @echo -e "\e[1;32mGenerated '{{ basename }}-pdf-ua-2.{{ format }}'!\e[0m"
+
+[doc("Check PDF/UA2 compliance with verapdf")]
+ua format="html":
+    @just ua_check erc-stg-b1-template {{ format }}
+    @just ua_check erc-stg-b2-template {{ format }}
+
+[private]
+wcag_check basename format:
+    verapdf --profile .WCAG-2-2-Complete-PDF20.xml --progress \
+        --format {{ format }} {{ basename }}.pdf > {{ basename }}-wcag-2-2.{{ format }}
+    @echo -e "\e[1;32mGenerated '{{ basename }}-wcag-2-2.{{ format }}'!\e[0m"
+
+[doc("Check WCAG 2.2 compliance with verapdf")]
+wcag format="html":
+    curl -o .WCAG-2-2-Complete-PDF20.xml \
+        'https://raw.githubusercontent.com/veraPDF/veraPDF-validation-profiles/refs/heads/integration/PDF_UA/WCAG-2-2-Complete-PDF20.xml'
+    @just wcag_check erc-stg-b1-template {{ format }}
+    @just wcag_check erc-stg-b2-template {{ format }}
+
 # }}}
 
 # {{{ develop
