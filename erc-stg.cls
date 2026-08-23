@@ -165,6 +165,25 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 % >>>
 
+% <<< tagging
+
+% warn about tagging before we start
+\if@tagged
+    \ifpdftex
+        \PackageWarning{erc-stg}{The 'tagged' option has no effect with pdfLaTeX. Compile with LuaLaTeX (TeX Live 2025+) to produce a tagged PDF}
+    \fi
+\fi
+
+% provide the tagging commands used by the class.
+\ifdefined\tagpdfstructbegin
+    \let\tagstructbegin\tagpdfstructbegin
+    \let\tagstructend\tagpdfstructend
+\fi
+\providecommand{\tagstructbegin}[1]{}
+\providecommand{\tagstructend}{}
+
+% >>>
+
 % <<< required formatting
 
 \singlespacing
@@ -240,6 +259,9 @@ There is a limit of 1000 characters (spaces and line breaks included).
     % customize PDF bookmarks a bit
     \RequirePackage{bookmark}
     \bookmarksetup{numbered}
+
+    % set the PDF metadata title from the proposal title
+    \hypersetup{pdftitle={\erc@title}}
 }
 
 % make links a bit less intrusive
@@ -295,6 +317,8 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 % <<< title
 
+\if@tagged\tagpdfsetup{tabsorder=structure}\fi
+
 \if@partone
     \renewcommand{\maketitle}{
     \vspace*{0.9cm}
@@ -316,10 +340,12 @@ There is a limit of 1000 characters (spaces and line breaks included).
     }
 
     \vspace{0.3cm}
+    \tagstructbegin{tag=Title}
     {\huge \erc@title}
 
     \vspace{0.3cm}
     {\huge \@ifundefined{erc@acronym}{PROPOSAL ACRONYM}{\erc@acronym}}
+    \tagstructend
     \end{center}
 
     \bigskip
