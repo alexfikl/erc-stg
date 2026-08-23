@@ -1,12 +1,28 @@
 % badness-ignore-file hard-coded-reference
 % badness-ignore-file unreferenced-label
 
-\documentclass[timesnewroman,partone,draftproposal]{erc-stg}
+% WARNING: Tagging/Accessible PDFs require running with LuaLaTeX. To disable this
+% functionality, delete the \DocumentMetadata command and remove the 'tagged' option
+% to `uvt-letterhead`. However, it's preferred to keep it if your toolchain allows it.
+
+% DocumentMetadata is required for an accessible PDF
+\DocumentMetadata{
+    lang=en-GB,
+    pdfstandard=ua-2,
+    pdfstandard=a-4f,
+    tagging=on,
+    testphase={phase-II,table,firstaid},
+    tagging-setup={
+        math/setup={mathml-AF,mathml-SE},
+        extra-modules={verbatim-mo},
+    }
+}
+
+\documentclass[timesnewroman,partone,tagged,draftproposal]{erc-stg}
 
 % {{{ packages
 
 % better environments
-\usepackage[shortlabels]{enumitem}
 \usepackage[nameinlink, noabbrev]{cleveref}
 \usepackage{booktabs}
 \usepackage{graphicx}
