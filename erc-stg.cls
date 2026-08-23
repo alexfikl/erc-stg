@@ -123,12 +123,16 @@
     \excludecomment{erccomment}
     \NewDocumentCommand \erchidden { m } {\empty}
 \else
-    \NewDocumentCommand \erchidden { m } {\textcolor{ERCGray}{#1}}
+    \NewDocumentCommand \erchidden { m } {%
+        \tagstructbegin{tag=erc-stg-comment}%
+        \textcolor{ERCGray}{#1}%
+        \tagstructend}
     \newenvironment{erccomment}{%
+        \tagstructbegin{tag=erc-stg-comment}%
         \vspace{-0.5cm}
         \setlength{\parskip}{1em}%
         \setlength{\parindent}{0pt}
-        \color{ERCGray}}{\medskip}
+        \color{ERCGray}}{\medskip\tagstructend}
 \fi
 
 \if@nocomments
@@ -181,6 +185,13 @@ There is a limit of 1000 characters (spaces and line breaks included).
 \fi
 \providecommand{\tagstructbegin}[1]{}
 \providecommand{\tagstructend}{}
+
+% custom roles
+\if@tagged
+    \tagpdfsetup{
+        role/new-tag = {tag=erc-stg-comment, role=Div},
+    }
+\fi
 
 % >>>
 
