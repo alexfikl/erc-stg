@@ -97,6 +97,7 @@
 \if@tagged
     \tagpdfsetup{
         role/new-tag = {tag=erc-stg-comment, role=Div},
+        role/new-tag = {tag=erc-stg-cvitem, role=Div},
     }
 \fi
 
@@ -436,11 +437,13 @@ There is a limit of 1000 characters (spaces and line breaks included).
 }
 
 \newenvironment{erccvitem}{
+\tagstructbegin{tag=erc-stg-cvitem}
 \if@tagged\tagpdfsetup{table/tagging=presentation}\fi
 \noindent
 \begin{tabular}{>{\centering}m{0.16\textwidth}m{0.84\textwidth}}
 }{
 \end{tabular}
+\tagstructend
 }
 
 \newenvironment{granttable}{
