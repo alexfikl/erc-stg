@@ -76,6 +76,32 @@
 
 % >>>
 
+% <<< tagging
+
+% warn about tagging before we start
+\if@tagged
+    \ifpdftex
+        \PackageWarning{erc-stg}{The 'tagged' option has no effect with pdfLaTeX. Compile with LuaLaTeX (TeX Live 2025+) to produce a tagged PDF}
+    \fi
+\fi
+
+% provide the tagging commands used by the class.
+\ifdefined\tagpdfstructbegin
+    \let\tagstructbegin\tagpdfstructbegin
+    \let\tagstructend\tagpdfstructend
+\fi
+\providecommand{\tagstructbegin}[1]{}
+\providecommand{\tagstructend}{}
+
+% custom roles
+\if@tagged
+    \tagpdfsetup{
+        role/new-tag = {tag=erc-stg-comment, role=Div},
+    }
+\fi
+
+% >>>
+
 % <<< commands
 
 \NewDocumentCommand \ercyear {} {\advance\year by 1 \the\year\advance\year by -1}
@@ -165,32 +191,6 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 \vspace{2cm}
 }
-\fi
-
-% >>>
-
-% <<< tagging
-
-% warn about tagging before we start
-\if@tagged
-    \ifpdftex
-        \PackageWarning{erc-stg}{The 'tagged' option has no effect with pdfLaTeX. Compile with LuaLaTeX (TeX Live 2025+) to produce a tagged PDF}
-    \fi
-\fi
-
-% provide the tagging commands used by the class.
-\ifdefined\tagpdfstructbegin
-    \let\tagstructbegin\tagpdfstructbegin
-    \let\tagstructend\tagpdfstructend
-\fi
-\providecommand{\tagstructbegin}[1]{}
-\providecommand{\tagstructend}{}
-
-% custom roles
-\if@tagged
-    \tagpdfsetup{
-        role/new-tag = {tag=erc-stg-comment, role=Div},
-    }
 \fi
 
 % >>>
