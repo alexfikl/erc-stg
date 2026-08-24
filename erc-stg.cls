@@ -73,6 +73,7 @@
 \RequirePackage{setspace}
 % enable comments
 \RequirePackage{comment}
+\RequirePackage[bottom]{footmisc}
 
 % >>>
 
@@ -377,7 +378,6 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \@ifundefined{erc@crosssummaryempty}{
     \noindent\fbox{\parbox{0.987\textwidth}{\erc@crosssummary}}}{}
 
-    \vfill
     \clearpage
 
     \if@draftproposal
@@ -390,10 +390,8 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \renewcommand{\maketitle}{
     \vspace*{0.65cm}
     \begin{center}
-    \textbf{\Large ERC Starting Grant \ercyear}
-
-    \textbf{\Large Part B2\footnotemark}
-
+    \textbf{\Large ERC Starting Grant \ercyear} \\
+    \textbf{\Large Part B2\footnotemark} \\
     \textbf{\Large \textit{(\underline{not} evaluated in Step 1)}}
     \end{center}
 
