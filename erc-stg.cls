@@ -148,11 +148,11 @@
 % define comment environments
 \if@nocomments
     \excludecomment{erccomment}
-    \NewDocumentCommand \erchidden { m } {\empty}
+    \NewDocumentCommand \erchidden { +m } {\empty}
 \else
-    \NewDocumentCommand \erchidden { m } {%
+    \NewDocumentCommand \erchidden { +m } {%
         \tagstructbegin{tag=erc-stg-comment}%
-        \textcolor{ERCGray}{#1}%
+        {\color{ERCGray}#1}%
         \tagstructend}
     \newenvironment{erccomment}{%
         \tagstructbegin{tag=erc-stg-comment}%
@@ -335,25 +335,25 @@ There is a limit of 1000 characters (spaces and line breaks included).
 \if@partone
     \renewcommand{\maketitle}{
     \vspace*{0.9cm}
-    \begin{center}
-    \textbf{\large ERC Starting Grant \ercyear} \\
+    {\centering
+    \textbf{\large ERC Starting Grant \ercyear}\par
     \textbf{\Large Part B1\footnote{Instructions for completing Part B1 can be found in
     the ``\textit{Information for Applicants to the Starting and Consolidator Grant
-    \ercyear\ Calls}''. }}
-    \erchidden{\\
+    \ercyear\ Calls}''. }}\par
+    \erchidden{%
     \large
     \textbf{\textit{
         (Part B1 is evaluated in Step 1 and Step 2, \\
-        Part B2 is evaluated in Step 2 only)}} \\
+        Part B2 is evaluated in Step 2 only)}}\par
     }
 
     \vspace{0.3cm}
     \tagstructbegin{tag=Title}
-    {\huge \erc@title} \\
+    {\huge \erc@title}\par
     \vspace{0.3cm}
-    {\huge \@ifundefined{erc@acronym}{PROPOSAL ACRONYM}{\erc@acronym}}
+    {\huge \@ifundefined{erc@acronym}{PROPOSAL ACRONYM}{\erc@acronym}}\par
     \tagstructend
-    \end{center}
+    }
 
     \bigskip
 
