@@ -244,9 +244,9 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 % tighted sections a bit for more space
 % NOTE: this is uglier, but seems to work with tagging (which KOMA-Script does not support)
-\renewcommand\section{\@startsection{section}{1}{\z@}{0.5em}{0.5em}{\normalsize\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{0.5em}{0.5em}{\normalsize\bfseries}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}{0.25em}{0.25em}{\normalsize\bfseries}}
+\renewcommand\section{\@startsection{section}{1}{\z@}{0.5em}{1em}{\normalsize\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{0.5em}{1em}{\normalsize\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{2.5em}{0.5em}{1em}{\normalsize\bfseries}}
 
 \addtokomafont{section}{\normalsize}
 \addtokomafont{subsection}{\normalsize\underline}
