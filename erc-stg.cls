@@ -336,16 +336,11 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \renewcommand{\maketitle}{
     \vspace*{0.9cm}
     \begin{center}
-    \textbf{\large ERC Starting Grant \ercyear}
-
-    \textbf{\Large Part B1\footnotemark}
-
-    \footnotetext{Instructions for completing Part B1 can be found in the
-    ``\textit{Information for Applicants to the Starting and Consolidator Grant
-    \ercyear\ Calls}''.
-    }
-
-    \erchidden{
+    \textbf{\large ERC Starting Grant \ercyear} \\
+    \textbf{\Large Part B1\footnote{Instructions for completing Part B1 can be found in
+    the ``\textit{Information for Applicants to the Starting and Consolidator Grant
+    \ercyear\ Calls}''. }}
+    \erchidden{\\
     \large
     \textbf{\textit{
         (Part B1 is evaluated in Step 1 and Step 2, \\
@@ -354,8 +349,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
     \vspace{0.3cm}
     \tagstructbegin{tag=Title}
-    {\huge \erc@title}
-
+    {\huge \erc@title} \\
     \vspace{0.3cm}
     {\huge \@ifundefined{erc@acronym}{PROPOSAL ACRONYM}{\erc@acronym}}
     \tagstructend
@@ -363,16 +357,17 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
     \bigskip
 
-    \noindent \textbf{Cover Page:}
     {
     \setlength{\leftmargini}{15pt}
     \setlength{\itemsep}{0pt}
+    \noindent \textbf{Cover Page:}
     \begin{itemize}
         \setlength{\parskip}{0pt}
         \item[--] Name of the Principal Investigator (PI): \textit{\erc@author}
         \item[--] Name of the PI's Host Institution for the project: \textit{\erc@institution}
         \item[--] Proposal duration in months: \textit{\erc@duration{} months} \\
     \end{itemize}
+    \vspace{-\topsep}
     }
 
     \erchidden{Text highlighted in grey should be deleted. \\}
