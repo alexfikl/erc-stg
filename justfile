@@ -70,7 +70,7 @@ badness:
 [private]
 ua_check basename format:
     verapdf \
-        --flavour ua2 --format {{ format }} --progress \
+        --format {{ format }} --progress \
         {{ basename }}.pdf > {{ basename }}-pdf-ua-2.{{ format }}
     @echo -e "\e[1;32mGenerated '{{ basename }}-pdf-ua-2.{{ format }}'!\e[0m"
 
