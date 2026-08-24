@@ -275,7 +275,12 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \bookmarksetup{numbered}
 
     % set the PDF metadata title from the proposal title
-    \hypersetup{pdftitle={\erc@title}}
+    \if@partone
+        \hypersetup{pdftitle={ERC StG Part B1 -- \erc@title}}
+    \fi
+    \if@parttwo
+        \hypersetup{pdftitle={ERC StG Part B2 -- \erc@title}}
+    \fi
 }
 
 % make links a bit less intrusive
