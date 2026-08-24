@@ -344,7 +344,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \large
     \textbf{\textit{
         (Part B1 is evaluated in Step 1 and Step 2, \\
-        Part B2 is evaluated in Step 2 only)}}
+        Part B2 is evaluated in Step 2 only)}} \\
     }
 
     \vspace{0.3cm}
@@ -377,7 +377,8 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \@ifundefined{erc@crosssummaryempty}{
     \noindent\fbox{\parbox{0.987\textwidth}{\erc@crosssummary}}}{}
 
-    \newpage
+    \vfill
+    \clearpage
 
     \if@draftproposal
         \linenumbers
