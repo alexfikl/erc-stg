@@ -17,20 +17,69 @@ jobs:
       - uses: actions/checkout@v7
       - uses: crate-ci/typos@master
   build:
-    name: Build (${{ matrix.engine }}-${{ matrix.texlive_version }})
+    name: Build (${{ matrix.engine }}-2024)
     runs-on: ubuntu-latest
     strategy:
       matrix:
         engine: ['pdflatex', 'lualatex']
-        texlive_version: ['2024', '2025', '2026']
     steps:
       - uses: actions/checkout@v7
+      - name: Disable tagging
+        run: |
+          sed -i 's/,tagged//' erc-stg-b1-template.tex erc-stg-b2-template.tex
+          sed -i '/\DocumentMetadata{/,/^}$/d' erc-stg-b1-template.tex erc-stg-b2-template.tex
       - name: Compile LaTeX template
         uses: xu-cheng/latex-action@v4
         with:
           root_file: |
             erc-stg-b1-template.tex
             erc-stg-b2-template.tex
-            erc-stg-host-institution-letter-template.tex
+          texlive_version: 2024
+          latexmk_use_lualatex: ${{ matrix.engine == 'lualatex' }}
+  build-tagged:
+    name: Build (${{ matrix.engine }}-${{ matrix.texlive_version }}-tagged)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        engine: ['pdflatex', 'lualatex']
+        texlive_version: ['2025', '2026']
+    steps:
+      - uses: actions/checkout@v7
+      - uses: extractions/setup-just@v4
+      - name: Compile LaTeX template
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: |
+            erc-stg-b1-template.tex
+            erc-stg-b2-template.tex
           texlive_version: ${{ matrix.texlive_version }}
           latexmk_use_lualatex: ${{ matrix.engine == 'lualatex' }}
+      - name: Install veraPDF
+        if: matrix.engine == 'lualatex'
+        uses: conda-incubator/setup-miniconda@v4
+        with:
+          activate-environment: test
+          environment-file: ./.github/verapdf-environment.yml
+          miniforge-version: latest
+      - name: Validate UA-2 and A-4f
+        if: matrix.engine == 'lualatex'
+        shell: bash -l {0}
+        run: |
+          just ua
+      - name: Validate WCAG 2.2
+        if: matrix.engine == 'lualatex'
+        shell: bash -l {0}
+        run: |
+          just wcag
+      - name: Generate reports
+        if: matrix.engine == 'lualatex'
+        shell: bash -l {0}
+        run: |
+          echo "# erc-stg-b1-template.pdf" >> "$GITHUB_STEP_SUMMARY"
+          python3 .github/verapdf-summary.py \
+            erc-stg-b1-template-pdf-ua-2.html erc-stg-b1-template-wcag-2-2.html \
+            >> "${GITHUB_STEP_SUMMARY}"
+          echo "# erc-stg-b2-template.pdf" >> "$GITHUB_STEP_SUMMARY"
+          python3 .github/verapdf-summary.py \
+            erc-stg-b2-template-pdf-ua-2.html erc-stg-b2-template-wcag-2-2.html \
+            >> "${GITHUB_STEP_SUMMARY}"
