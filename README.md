@@ -1,6 +1,7 @@
 # ERC-STG: LaTeX Template
 
 [![GitHub Actions Workflow Status](https://github.com/alexfikl/erc-stg/actions/workflows/ci.yml/badge.svg)](https://github.com/alexfikl/erc-stg/actions/workflows/ci.yml)
+[![veraPDF Compliance](https://img.shields.io/badge/PDF%2FUA--2-Verified_with_veraPDF-blue)](https://verapdf.org/home)
 [![Open in Overleaf](https://img.shields.io/static/v1?label=LaTeX&message=Open-in-Overleaf&color=47a141&style=flat&logo=overleaf)](https://www.overleaf.com/docs?snip_uri=https://github.com/alexfikl/erc-stg/archive/refs/heads/main.zip)
 
 > [!NOTE]
@@ -55,6 +56,37 @@ latexmk -pdflua erc-stg-b2-template.tex
 Using `latexmk` is recommended because it will nicely handle generating the
 bibliography for you. If you use an IDE or Overleaf, this will be handled
 automatically.
+
+## Tagging (PDF/UA-2 Compliance)
+
+By default, the current templates use the new [LaTeX
+Tagging](https://latex3.github.io/tagging-project/) infrastructure to produce
+more accessible PDFs (using the PDF/UA-2 standard for Universal Accessibility).
+We currently pass the checks from [veraPDF](https://verapdf.org/), but this is
+not sufficient for full compliance (i.e. some aspects cannot be checked
+automatically, such as image contrast). The accessible build requires a pretty
+modern LaTeX toolchain:
+
+- **TeXLive 2025+**, the newer the better (Overleaf has TeXLive 2026).
+- **LuaLaTeX**. PDFLaTeX and XeLaTeX cannot produce the required tagged PDFs. Note
+  that PDFLaTeX can produce PDF/UA-2 documents, they do not pass the veraPDF checks
+  at this point.
+
+Other things to keep in mind when using tagged PDFs:
+
+- Many common packages do not work with tagging. See the
+  [official Tagging Status page](https://latex3.github.io/tagging-project/tagging-status/)
+  for the compatibility status for most packages. Note that incompatible
+  packages will still work most of the time, but they will not produce PDFs that
+  can actually be used by screen readers or other accessibility software.
+- There are strict requirements around figures and tables that need to be followed.
+  See the [official documentation](https://latex3.github.io/tagging-project/documentation/usage-instructions)
+  and [Overleaf's documentation](https://docs.overleaf.com/writing-and-editing/creating-accessible-pdfs)
+  for more information on the various problems.
+
+The tagged build should be easy to disable. You must delete the `\DocumentMetadata`
+command at the top of the template files and remove the `tagged` argument
+from the document class command.
 
 ## Functionality
 
