@@ -28,7 +28,11 @@ format: yamlfmt mdformat justfmt
 
 [doc("Format tex files with badness")]
 texfmt:
-    badness format template.tex uvt-letterhead.sty
+    badness format \
+        erc-stg.cls \
+        erc-stg-b1-template.tex erc-stg-b2-template.tex \
+        erc-stg-host-institution-letter-template.tex \
+        erc-stg-eligibility-extension-request-template.tex
     @echo -e "\e[1;32mbadness clean!\e[0m"
 
 [doc("Format YAML files with yamlfmt")]
