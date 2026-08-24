@@ -81,8 +81,8 @@
 
 % warn about tagging before we start
 \if@tagged
-    \ifpdftex
-        \PackageWarning{erc-stg}{The 'tagged' option has no effect with pdfLaTeX. Compile with LuaLaTeX (TeX Live 2025+) to produce a tagged PDF}
+    \ifluatex\else
+        \PackageWarning{erc-stg}{The 'tagged' option is not fully supported with pdfLaTeX and will not currently produce veraPDF-clean PDF/UA-2 output. Compile with LuaLaTeX (TeX Live 2025+) for tagged PDFs}
     \fi
 \fi
 
@@ -304,8 +304,9 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 % add line numbers if in draft mode
 \if@draftproposal
+    % NOTE: lineno is not compatible with tagging, but this is just meant for
+    % drafting, not the final document, so it should be fine for now
     \RequirePackage[mathlines]{lineno}
-    \RequirePackage{xcolor}
     \renewcommand{\linenumberfont}{
         \normalfont\footnotesize\textcolor{ERCGray}
     }
