@@ -1,8 +1,8 @@
 % <<< preamble
 
 \def\ercversion{11.0}
-\def\fileversion{v2026.2}
-\def\filedate{2026/08/18}
+\def\fileversion{v2026.3}
+\def\filedate{2026/08/24}
 \def\clsname{erc-stg}
 
 \NeedsTeXFormat{LaTeX2e}
