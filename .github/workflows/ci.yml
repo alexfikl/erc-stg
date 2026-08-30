@@ -26,7 +26,6 @@ jobs:
       - uses: actions/checkout@v7
       - name: Disable tagging
         run: |
-          sed -i 's/,tagged//' erc-stg-b1-template.tex erc-stg-b2-template.tex
           sed -i '/\DocumentMetadata{/,/^}$/d' erc-stg-b1-template.tex erc-stg-b2-template.tex
       - name: Compile LaTeX template
         uses: xu-cheng/latex-action@v4

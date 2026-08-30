@@ -27,9 +27,11 @@
 \newif\if@arial \@arialfalse
 \DeclareOption{arial}{\@arialtrue}
 
-% enable tagging / accessibility functionality for PDF/UA-2
+% enable tagging features if \DocumentMetadata was used
 \newif\if@tagged \@taggedfalse
-\DeclareOption{tagged}{\@taggedtrue}
+\ifdefined\IfDocumentMetadataTF
+    \IfDocumentMetadataTF{\@taggedtrue}{\@taggedfalse}
+\fi
 
 % draft features
 \newif\if@draftproposal \@draftproposalfalse
@@ -79,18 +81,10 @@
 
 % <<< tagging
 
-% disable tagging if DocumentMetadata is not provided in the document
-\if@tagged
-    \ifdefined\DocumentMetadata\else
-        \@taggedfalse
-        \PackageWarning{erc-stg}{The 'tagged' option requires the \string\DocumentMetadata\space command to be used before \string\documentclass. Tagging is now disabled}
-    \fi
-\fi
-
 % warn about tagging before we start
 \if@tagged
     \ifluatex\else
-        \PackageWarning{erc-stg}{The 'tagged' option is not fully supported with pdfLaTeX and will not currently produce veraPDF-clean PDF/UA-2 output. Compile with LuaLaTeX (TeX Live 2025+) for tagged PDFs}
+        \PackageWarning{erc-stg}{Tagged PDF generation is not fully supported with pdfLaTeX and will not currently produce veraPDF-clean PDF/UA-2 output. Compile with LuaLaTeX (TeX Live 2025+) for tagged PDFs}
     \fi
 \fi
 

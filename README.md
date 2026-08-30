@@ -45,6 +45,10 @@ itself. You can, of course, just delete them too.
 
 ## Building
 
+> [!NOTE]
+> To build with PDFLaTeX or XeLaTeX, the accessibility setup must be turned
+> off. We recommend using LuaLaTeX whenever possible for this reason.
+
 The resulting PDF files are included for easy viewing, but it is recommended to
 build the two parts with e.g. `latexmk` as follows
 
@@ -57,7 +61,11 @@ Using `latexmk` is recommended because it will nicely handle generating the
 bibliography for you. If you use an IDE or Overleaf, this will be handled
 automatically.
 
-## Tagging (PDF/UA-2 Compliance)
+## Accessibility (PDF/UA-2 Compliance)
+
+> [!NOTE]
+> Accessibility support (PDF/UA-2) is enabled automatically whenever
+> `\DocumentMetadata` is provided before `\documentclass` in the templates.
 
 By default, the current templates use the new [LaTeX
 Tagging](https://latex3.github.io/tagging-project/) infrastructure to produce
@@ -84,9 +92,8 @@ Other things to keep in mind when using tagged PDFs:
   and [Overleaf's documentation](https://docs.overleaf.com/writing-and-editing/creating-accessible-pdfs)
   for more information on the various problems.
 
-The tagged build should be easy to disable. You must delete the `\DocumentMetadata`
-command at the top of the template files and remove the `tagged` argument
-from the document class command.
+The tagged build should be easy to disable. You only need to delete or
+comment out the `\DocumentMetadata` command at the top of the template files.
 
 ## Functionality
 
