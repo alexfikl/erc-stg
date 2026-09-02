@@ -67,7 +67,7 @@ automatically.
 > Accessibility support (PDF/UA-2) is enabled automatically whenever
 > `\DocumentMetadata` is provided before `\documentclass` in the templates.
 >
-> The EU is pushing for some accesibility improvements (through the
+> The EU is pushing for some accessibility improvements (through the
 > [EAA](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-accessibility-act-eaa_en),
 > for example), that do not directly apply to ERC grants. However, enabling these
 > features can improve accessibility for reviewers and program officers, so it's
