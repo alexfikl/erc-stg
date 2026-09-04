@@ -167,6 +167,7 @@
 
 \if@nocomments
 \def\erc@summary{\hfill \vspace{10.5cm}}
+\def\erc@crosssummary{\hfill \vspace{3cm}}
 \else
 \def\erc@summary{
 \erchidden{Proposal summary (identical to the abstract from the online proposal
