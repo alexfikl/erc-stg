@@ -1,7 +1,7 @@
 % <<< preamble
 
 \def\ercversion{11.0}
-\def\fileversion{v2026.5}
+\def\fileversion{v2026.6}
 \def\filedate{2026/09/04}
 \def\clsname{erc-stg}
 
