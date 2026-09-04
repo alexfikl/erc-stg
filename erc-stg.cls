@@ -101,6 +101,7 @@
     \tagpdfsetup{
         role/new-tag = {tag=erc-stg-comment, role=Div},
         role/new-tag = {tag=erc-stg-cvitem, role=Div},
+        role/new-tag = {tag=erc-stg-granttable, role=Div},
     }
 \fi
 
@@ -419,6 +420,8 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 % <<< table
 
+\newlength{\tablewidth}
+
 \newenvironment{erctable}[2][\normalsize]{
 \begin{center}
 #1 % Set the right size (and font maybe)
@@ -442,22 +445,25 @@ There is a limit of 1000 characters (spaces and line breaks included).
 \newenvironment{erccvitem}{
 \tagstructbegin{tag=erc-stg-cvitem}
 \if@tagged\tagpdfsetup{table/tagging=presentation}\fi
+\setlength{\tablewidth}{\dimexpr\textwidth - 4\tabcolsep\relax}
 \noindent
-\begin{tabular}{>{\centering\arraybackslash}m{0.16\textwidth}m{0.80\textwidth}}
+\begin{tabular}{>{\centering\arraybackslash}m{0.16\tablewidth}m{0.84\tablewidth}}
 }{
 \end{tabular}
 \tagstructend
 }
 
 \newenvironment{granttable}{
+\tagstructbegin{tag=erc-stg-granttable}
 \if@tagged\tagpdfsetup{table/tagging=true, table/header-rows={1}}\fi
+\setlength{\tablewidth}{\dimexpr\textwidth - 12\tabcolsep - 7\arrayrulewidth\relax}
 \begin{erctable}[\normalsize]{
-    |m{0.13\textwidth}
-    |m{0.13\textwidth}
-    |m{0.13\textwidth}
-    |m{0.13\textwidth}
-    |m{0.13\textwidth}
-    |m{0.195\textwidth}
+    |m{0.26\tablewidth}
+    |m{0.15\tablewidth}
+    |m{0.1\tablewidth}
+    |m{0.1\tablewidth}
+    |m{0.13\tablewidth}
+    |m{0.26\tablewidth}
     |} \hline
 \rowcolor{ERCTableGray}
 \centering\arraybackslash \textit{Project title} &
@@ -469,6 +475,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
 \hline
 }{
 \end{erctable}
+\tagstructend
 }
 
 % >>>
