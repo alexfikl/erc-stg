@@ -83,7 +83,7 @@
 
 % warn about tagging before we start
 \if@tagged
-    \ifluatex\else
+    \ifLuaTeX\else
         \PackageWarning{erc-stg}{Tagged PDF generation is not fully supported with pdfLaTeX and will not currently produce veraPDF-clean PDF/UA-2 output. Compile with LuaLaTeX (TeX Live 2025+) for tagged PDFs}
     \fi
 \fi
@@ -205,7 +205,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 \singlespacing
 
-\ifpdftex
+\ifPDFTeX
     \RequirePackage[T1]{fontenc}
 \else
     \RequirePackage{fontspec}
@@ -213,7 +213,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 % required font is Times New Roman (or TeX Gyre on Linux)
 \if@timesnewroman
-    \ifpdftex
+    \ifPDFTeX
         \RequirePackage{tgtermes}
     \else
         \IfFontExistsTF{Times New Roman}{
@@ -228,7 +228,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
 \fi
 
 \if@arial
-    \ifpdftex
+    \ifPDFTeX
         \RequirePackage{tgheros}
 
         % force sans serif fonts
