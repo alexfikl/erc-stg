@@ -103,11 +103,11 @@ comment out the `\DocumentMetadata` command at the top of the template files.
 
 ## Functionality
 
-This packages provides the `erc-stg` class that is based on the KOMA-script
-`scrartcl` class and accepts any options meant for it. It can be used as
+This packages provides the `erc-stg` class that is based on the standard
+`article` class and accepts the usual options meant for it. It can be used as
 
 ```tex
-\documentclass[11bp,arial,partone,draftproposal]{erc-stg}
+\documentclass[arial,partone,draftproposal]{erc-stg}
 
 % ... preamble ...
 
@@ -120,8 +120,9 @@ This packages provides the `erc-stg` class that is based on the KOMA-script
 
 The class has some options that can be used in the `\documentclass` command (as
 above). They are set in the existing template files already. Any unknown
-options are forwarded to the `scrartcl` class. There are three options meant
-for drafting:
+options are forwarded to the `article` class.
+
+There are three options meant for drafting:
 
 - `layoutgrid`: overlays a grid on top of each page to check margins and
   other alignment issues.
