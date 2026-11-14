@@ -180,7 +180,7 @@ be achieved. The abstract will be used as the short description of your research
 proposal in the evaluation process and in communications to contact in particular
 potential independent external experts and/or to inform the Commission and/or
 the programme management committees and/or relevant national funding agencies.
-It must therefore be short and precise and should not contain confidential information. \\}
+It must therefore be short and precise, and should not contain confidential information. \\}
 
 \erchidden{Please use plain typed text, avoiding formulae and other special
 characters. The abstract must be written in English. There is a limit of 2000
