@@ -374,9 +374,8 @@ There is a limit of 1000 characters (spaces and line breaks included).
         \setlength{\parskip}{0pt}
         \item[--] Name of the Principal Investigator (PI): \textit{\erc@author}
         \item[--] Name of the PI's Host Institution for the project: \textit{\erc@institution}
-        \item[--] Proposal duration in months: \textit{\erc@duration{} months} \\
+        \item[--] Proposal duration in months: \textit{\erc@duration{} months}
     \end{itemize}
-    \vspace{-\topsep}
     }
 
     \erchidden{Text highlighted in grey should be deleted. \\}
