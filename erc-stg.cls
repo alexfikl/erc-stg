@@ -45,12 +45,12 @@
 \newif\if@layoutgrid \@layoutgridfalse
 \DeclareOption{layoutgrid}{\@layoutgridtrue}
 
-% additional options passed to `scrartcl` class
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
-\PassOptionsToClass{a4paper, fontsize=11bp}{scrartcl}
+% additional options passed to `article` class
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\PassOptionsToClass{a4paper, 11pt}{article}
 
 \ProcessOptions
-\LoadClass{scrartcl}
+\LoadClass{article}
 
 % >>>
 
@@ -68,7 +68,7 @@
 \RequirePackage[table]{xcolor}
 \RequirePackage{longtable}
 % customize headers and footers
-\RequirePackage{scrlayer-scrpage}
+\RequirePackage{fancyhdr}
 % indent first paragraph in a section
 \RequirePackage{indentfirst}
 % set recommended spacing
@@ -242,20 +242,18 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \fi
 \fi
 
-\typearea{14}
-\AfterCalculatingTypearea{
-    \geometry{top=1.75cm, bottom=1.5cm, left=2cm, right=2cm, footskip=0.5cm, headsep=0.5cm}
+% ERC margins: 2cm sides and 1.5cm top/bottom
+\geometry{
+    top=1.5cm, bottom=1.5cm, left=2cm, right=2cm,
+    headheight=1.5em, headsep=0.5cm, footskip=0.5cm
 }
 
-% tighted sections a bit for more space
-% NOTE: this is uglier, but seems to work with tagging (which KOMA-Script does not support)
-\renewcommand\section{\@startsection{section}{1}{\z@}{0.5em}{1em}{\normalsize\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{0.5em}{1em}{\normalsize\bfseries}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{2.5em}{0.5em}{1em}{\normalsize\bfseries}}
+% tighten sections a bit for more space
+% NOTE: the kernel \@startsection is tagging-aware
+\renewcommand\section{\@startsection{section}{1}{\z@}{0.5em}{1em}{\normalfont\normalsize\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{0.5em}{1em}{\normalfont\normalsize\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{2.5em}{0.5em}{1em}{\normalfont\normalsize\bfseries}}
 
-\addtokomafont{section}{\normalsize}
-\addtokomafont{subsection}{\normalsize\underline}
-\addtokomafont{subsubsection}{\normalsize}
 \renewcommand{\thesection}{Section \Alph{section}}
 
 % >>>
@@ -320,9 +318,6 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
 % <<< page header/footer styles
 
-\pagestyle{plain}
-\clearpairofpagestyles
-
 \def\callapplicant{\erc@authorlastname}
 \def\callacronym{\textnormal{\@ifundefined{erc@acronym}{ACRONYM}{\erc@acronym}}}
 \def\pagefooter{\textnormal{\thepage}}
@@ -332,10 +327,16 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \def\callpart{\textnormal{Part B1 \draftheader}}
 \fi
 
-\cfoot[\pagefooter]{\pagefooter}
-\ihead[\callapplicant]{\callapplicant}
-\chead[\callpart]{\callpart}
-\ohead[\callacronym]{\callacronym}
+\fancypagestyle{plain}{%
+    \fancyhf{}%
+    \renewcommand{\headrulewidth}{0pt}%
+    \renewcommand{\footrulewidth}{0pt}%
+    \fancyhead[L]{\textnormal{\callapplicant}}%
+    \fancyhead[C]{\callpart}%
+    \fancyhead[R]{\callacronym}%
+    \fancyfoot[C]{\pagefooter}%
+}
+\pagestyle{plain}
 
 % >>>
 
@@ -483,7 +484,5 @@ There is a limit of 1000 characters (spaces and line breaks included).
 % <<< cv
 
 % >>>
-
-\recalctypearea
 
 \endinput
