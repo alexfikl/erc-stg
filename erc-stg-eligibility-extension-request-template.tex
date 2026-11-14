@@ -45,6 +45,15 @@
 \definecolor{ERCGray}{RGB}{140, 140, 140}
 \NewDocumentCommand \erccomment { m } {\textcolor{ERCGray}{#1}}
 
+% fixed-size checkbox so checked/unchecked labels line up exactly
+\NewDocumentCommand \ccbox { m } {%
+  \begingroup
+  \setlength{\fboxrule}{1.5pt}%
+  \fbox{\makebox[1ex][c]{\rule[0ex]{0pt}{1ex}#1}}%
+  \endgroup}
+\NewDocumentCommand \checkbox { } {\ccbox{}}
+\NewDocumentCommand \checkedbox { } {\ccbox{\rule[0ex]{1ex}{1ex}}}
+
 % }}}
 
 \begin{document}
@@ -63,6 +72,36 @@ In connection with my \erccomment{[call identifier: STG 2027/ COG 2027]} proposa
 acronym \erccomment{[indicate acronym]}, I am requesting an extension of the eligibility
 window period due to:
 
+\begin{itemize} \setlength{\itemsep}{1em}
+\item[\checkedbox]
+Maternity / paternal leave
+
+\item[\checkbox]
+Paternity / parental leave
+
+\item[\checkbox]
+Long-term illness\footnote{Over 90 days for the Principal Investigator or a close family
+member (child, spouse, parent or sibling).}
+
+\item[\checkbox]
+Disability
+
+\item[\checkbox]
+National service
+
+\item[\checkbox]
+Clinical training
+
+\item[\checkbox]
+Major disaster\footnote{For a minimum of 90 days.}
+
+\item[\checkbox]
+Seeking asylum
+
+\item[\checkbox]
+Gender-based violence or any other form of violence\footnotemark[2]
+\end{itemize}
+
 \vfill
 
 Calculation of the extension period for the applicable circumstances \erccomment{[each
@@ -71,10 +110,10 @@ event should be listed separately]}:
 {
 \footnotesize
 \begin{tabular}{
-    |b{0.03\textwidth}
+    |b{0.025\textwidth}
     |b{0.11\textwidth}
-    |b{0.218\textwidth}
-    |b{0.098\textwidth}
+    |b{0.219\textwidth}
+    |b{0.1\textwidth}
     |b{0.09\textwidth}
     |b{0.165\textwidth}
     |b{0.11\textwidth}|
@@ -99,11 +138,6 @@ event should be listed separately]}:
 }
 \vspace{1cm}
 }
-
-\footnotetext[1]{Over 90 days for the Principal Investigator or a close family member
-(child, spouse, parent or sibling).}
-
-\footnotetext[2]{For a minimum of 90 days.}
 \end{document}
 
 % kate: default-dictionary en_GB;
