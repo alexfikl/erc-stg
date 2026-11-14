@@ -6,7 +6,7 @@
 \def\clsname{erc-stg}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{\clsname}[\filedate\ \fileversion\ ERC Starting Grant Proposal]
+\ProvidesClass{\clsname}[\filedate\ \fileversion\ ERC Grant Proposal]
 
 % >>>
 
@@ -117,6 +117,8 @@
 % NOTE: color used for table headers
 \definecolor{ERCTableGray}{RGB}{191, 191, 191}
 
+\NewDocumentCommand \ercgrant { m m } {\def\erc@grantname{#1} \def\erc@grantabbr{#2}}
+
 \NewDocumentCommand \ercauthor { m } {\def\erc@author{#1}}
 \NewDocumentCommand \ercauthorlastname { m } {\def\erc@authorlastname{#1}}
 \NewDocumentCommand \ercinstitution { m } {\def\erc@institution{#1}}
@@ -130,6 +132,7 @@
 \NewDocumentCommand \erccrosssummary { m } {\def\erc@crosssummary{#1}}
 
 % set defaults
+\ercgrant{Starting}{StG}
 \ercauthor{Applicant Name}
 \ercauthorlastname{Applicant's Last Name}
 \ercinstitution{Institution Name}
@@ -138,6 +141,8 @@
 % \ercacronym{ACRONYM}
 
 % inserting commands
+\NewDocumentCommand \insertercgrantname {} {\erc@grantname}
+\NewDocumentCommand \insertercgrantabbr {} {\erc@grantabbr}
 \NewDocumentCommand \insertercauthor {} {\erc@author}
 \NewDocumentCommand \insertercauthorlastname {} {\erc@authorlastname}
 \NewDocumentCommand \insertercinstitution {} {\erc@institution}
@@ -276,10 +281,10 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
     % set the PDF metadata title from the proposal title
     \if@partone
-        \hypersetup{pdftitle={ERC StG Part B1 -- \erc@title}}
+        \hypersetup{pdftitle={ERC \insertercgrantabbr{} Part B1 -- \erc@title}}
     \fi
     \if@parttwo
-        \hypersetup{pdftitle={ERC StG Part B2 -- \erc@title}}
+        \hypersetup{pdftitle={ERC \insertercgrantabbr{} Part B2 -- \erc@title}}
     \fi
 }
 
@@ -346,7 +351,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \renewcommand{\maketitle}{
     \vspace*{0.9cm}
     {\centering
-    \textbf{\large ERC Starting Grant \ercyear}\par
+    \textbf{\large ERC \insertercgrantname{} Grant \ercyear}\par
     \textbf{\Large Part B1\footnote{Instructions for completing Part B1 can be found in
     the ``\textit{Information for Applicants to the Starting and Consolidator Grant
     \ercyear\ Calls}''. }}\par
@@ -398,7 +403,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
     \renewcommand{\maketitle}{
     \vspace*{0.65cm}
     \begin{center}
-    \textbf{\Large ERC Starting Grant \ercyear} \\
+    \textbf{\Large ERC \insertercgrantname{} Grant \ercyear} \\
     \textbf{\Large Part B2\footnotemark} \\
     \textbf{\Large \textit{(\underline{not} evaluated in Step 1)}}
     \end{center}
