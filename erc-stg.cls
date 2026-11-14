@@ -380,10 +380,10 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
     \erchidden{Text highlighted in grey should be deleted. \\}
 
-    \noindent\fbox{\parbox{0.987\textwidth}{\erc@summary}}
+    \noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{\erc@summary}}
 
     \@ifundefined{erc@crosssummaryempty}{
-    \noindent\fbox{\parbox{0.987\textwidth}{\erc@crosssummary}}}{}
+    \noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{\erc@crosssummary}}}{}
 
     \clearpage
 
