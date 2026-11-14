@@ -222,9 +222,6 @@ There is a limit of 1000 characters (spaces and line breaks included).
                 \setmainfont[Ligatures=TeX]{TeX Gyre Termes}
             }{\PackageWarning{erc-stg}{No Times New Roman-type font could be found}}}
     \fi
-
-    % force serif fonts
-    \addtokomafont{disposition}{\rmfamily}
 \fi
 
 \if@arial
