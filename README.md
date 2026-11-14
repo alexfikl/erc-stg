@@ -12,6 +12,11 @@
 > care and double check with the official template. Any help ironing out
 > discrepancies is highly appreciated!
 
+> [!NOTE]
+> This template also works for Consolidator Grants, since they use a mostly
+> identical template. Use `\ercgrant{Consolidator}{CoG}` in the preamble of the
+> Part B1 and Part B2 templates to switch.
+
 LaTeX class and template for the European Research Council (ERC) Starting Grant
 applications. The goal of this template is to be as close as possible to the
 original template provided by the ERC. However, at this time (2024) the call
@@ -144,6 +149,10 @@ The class also provides a few useful commands that can be used in the proposal.
 These should be set in both the Part B1 and Part B2 files to ensure that the
 proposal metadata is available.
 
+- `\ercgrant{NAME}{ABBR}`, `\insertercgrantname`, `\insertercgrantabbr`: sets the
+  grant name (e.g. `Starting`) and abbreviation (e.g. `StG`). This can be used
+  to switch to the Consolidator Grant, since it uses an identical template, by
+  setting `\ercgrant{Consolidator}{CoG}`.
 - `\ercauthor`, `\insertercauthor`: sets the full author name (first and last name).
 - `\ercauthorlastname`, `\insertercauthorlastname`: sets the author's last name (used in the header).
 - `\ercinstitution`, `\insertercinstitution`: sets the hosting institution.
