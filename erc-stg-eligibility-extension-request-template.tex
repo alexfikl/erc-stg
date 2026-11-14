@@ -1,4 +1,4 @@
-\documentclass[12pt]{scrartcl}
+\documentclass[12pt,a4paper]{article}
 
 % {{{ packages
 
@@ -10,6 +10,7 @@
 
 % better typography
 \usepackage{microtype}
+\usepackage[multiple]{footmisc}
 
 \ifPDFTeX
     \usepackage[T1]{fontenc}
@@ -23,12 +24,10 @@
         }{\PackageWarning{erc-stg}{No Times New Roman-type font could be found}}}
 \fi
 
-% force serif fonts
-\addtokomafont{disposition}{\rmfamily}
-
 % }}}
 
 % {{{ formatting
+
 \hypersetup{
     colorlinks=true,
     urlcolor=blue,
@@ -36,17 +35,14 @@
     linkcolor=black
 }
 
-% NOTE: color used for comments
-\definecolor{ERCGray}{RGB}{140, 140, 140}
+% NOTE: use a decent parskip
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5\baselineskip plus 0.5\baselineskip minus 0.25\baselineskip}
 
-\KOMAoptions{
-    paper=A4,
-    parskip=half,
-    footnotes=multiple,
-}
-
+% force geometry that looks similar to the official document
 \geometry{top=2.25cm, bottom=2.25cm, left=2.35cm, right=2.35cm}
 
+\definecolor{ERCGray}{RGB}{140, 140, 140}
 \NewDocumentCommand \erccomment { m } {\textcolor{ERCGray}{#1}}
 
 % }}}
