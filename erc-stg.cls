@@ -442,7 +442,7 @@ There is a limit of 1000 characters (spaces and line breaks included).
 \newenvironment{erccvitem}{
 \tagstructbegin{tag=erc-stg-cvitem}
 \if@tagged\tagpdfsetup{table/tagging=presentation}\fi
-\setlength{\tablewidth}{\dimexpr\textwidth - 4\tabcolsep\relax}
+\setlength{\tablewidth}{\dimexpr\textwidth - 4\tabcolsep - 6pt\relax}
 \noindent
 \begin{tabular}{>{\centering\arraybackslash}m{0.16\tablewidth}m{0.84\tablewidth}}
 }{
