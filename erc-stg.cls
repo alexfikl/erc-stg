@@ -61,7 +61,6 @@
 \RequirePackage{iftex}
 \RequirePackage{xparse}
 \RequirePackage{geometry}
-\RequirePackage[hypertexnames=false,breaklinks=true]{hyperref}
 
 % build fancy table required for organization description
 \RequirePackage{array}
@@ -76,6 +75,8 @@
 % enable comments
 \RequirePackage{comment}
 \RequirePackage[bottom]{footmisc}
+
+\RequirePackage[hypertexnames=false,breaklinks=true]{hyperref}
 
 % >>>
 
