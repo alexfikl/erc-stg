@@ -13,8 +13,8 @@
 > discrepancies is highly appreciated!
 
 > [!NOTE]
-> This template also works for Consolidator Grants, since they use a mostly
-> identical template. Use `\ercgrant{Consolidator}{CoG}` in the preamble of the
+> This template also works for Consolidator Grants, since they use mostly
+> identical formatting. Add `\ercgrant{Consolidator}{CoG}` to the preamble of the
 > Part B1 and Part B2 templates to switch.
 
 LaTeX class and template for the European Research Council (ERC) Starting Grant
