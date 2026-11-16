@@ -281,10 +281,10 @@ There is a limit of 1000 characters (spaces and line breaks included).
 
     % set the PDF metadata title from the proposal title
     \if@partone
-        \hypersetup{pdftitle={ERC \insertercgrantabbr{} Part B1 -- \erc@title}}
+        \hypersetup{pdftitle={ERC \erc@grantabbr\ Part B1 -- \erc@title}}
     \fi
     \if@parttwo
-        \hypersetup{pdftitle={ERC \insertercgrantabbr{} Part B2 -- \erc@title}}
+        \hypersetup{pdftitle={ERC \erc@grantabbr\ Part B2 -- \erc@title}}
     \fi
 }
 
